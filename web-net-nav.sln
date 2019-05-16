@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28803.452
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "web-net-nav", "web-net-nav\web-net-nav.csproj", "{36B1518C-6021-4F3E-BAE9-CFA430D8AC10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "web-net-nav", "web-net-nav\web-net-nav.csproj", "{36B1518C-6021-4F3E-BAE9-CFA430D8AC10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "web-net-nav-tests", "web-net-nav-tests\web-net-nav-tests.csproj", "{AE048E9A-8EF1-42F9-BEFF-E02F9A4793A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "web-net-nav-tests", "web-net-nav-tests\web-net-nav-tests.csproj", "{AE048E9A-8EF1-42F9-BEFF-E02F9A4793A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "web-net-nav.tests", "web-net-nav.tests\web-net-nav.tests.csproj", "{6DB6141A-75AD-47DA-A199-85B959FA1E73}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{AE048E9A-8EF1-42F9-BEFF-E02F9A4793A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE048E9A-8EF1-42F9-BEFF-E02F9A4793A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE048E9A-8EF1-42F9-BEFF-E02F9A4793A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DB6141A-75AD-47DA-A199-85B959FA1E73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DB6141A-75AD-47DA-A199-85B959FA1E73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DB6141A-75AD-47DA-A199-85B959FA1E73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DB6141A-75AD-47DA-A199-85B959FA1E73}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

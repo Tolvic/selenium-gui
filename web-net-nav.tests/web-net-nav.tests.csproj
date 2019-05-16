@@ -17,4 +17,8 @@
     <ProjectReference Include="..\web-net-nav\web-net-nav.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 </Project>

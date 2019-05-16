@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using web_net_nav.Models;
 
-
 namespace Tests
 {
     [TestFixture]

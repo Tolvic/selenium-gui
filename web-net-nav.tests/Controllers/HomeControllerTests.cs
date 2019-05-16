@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using web_net_nav.Controllers;
 
- namespace Tests
+namespace web_net_nav.tests.Controllers
 {
     [TestFixture]
     public class HomeControllerTests

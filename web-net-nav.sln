@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "web-net-nav", "web-net-nav\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "web-net-nav.tests", "web-net-nav.tests\web-net-nav.tests.csproj", "{6DB6141A-75AD-47DA-A199-85B959FA1E73}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "web-net-nav.functiontests", "web-net-nav.functiontests\web-net-nav.functiontests.csproj", "{7F7B5CB8-15AF-43C9-A3B3-06F427B22DB3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6DB6141A-75AD-47DA-A199-85B959FA1E73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DB6141A-75AD-47DA-A199-85B959FA1E73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DB6141A-75AD-47DA-A199-85B959FA1E73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F7B5CB8-15AF-43C9-A3B3-06F427B22DB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F7B5CB8-15AF-43C9-A3B3-06F427B22DB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F7B5CB8-15AF-43C9-A3B3-06F427B22DB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F7B5CB8-15AF-43C9-A3B3-06F427B22DB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

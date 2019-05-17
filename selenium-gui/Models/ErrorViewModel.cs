@@ -1,6 +1,6 @@
 using System;
 
-namespace web_net_nav.Models
+namespace selenium_gui.Models
 {
     public class ErrorViewModel
     {

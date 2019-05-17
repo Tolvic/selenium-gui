@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
-    <RootNamespace>web_net_nav</RootNamespace>
+    <RootNamespace>selenium_gui</RootNamespace>
   </PropertyGroup>
 
 

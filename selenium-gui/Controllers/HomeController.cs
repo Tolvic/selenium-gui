@@ -4,11 +4,11 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using web_net_nav.Models;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using selenium_gui.Models;
 
-namespace web_net_nav.Controllers
+namespace selenium_gui.Controllers
 {
     public class HomeController : Controller
     {
@@ -19,7 +19,7 @@ namespace web_net_nav.Controllers
 
         public IActionResult RunReceipe(string url)
         {
-            var driver = new ChromeDriver(@"C:\Projects\web-net-nav\drivers");
+            var driver = new ChromeDriver(@"C:\Projects\selenium-gui\drivers");
 
             driver.Navigate().GoToUrl(url);
 

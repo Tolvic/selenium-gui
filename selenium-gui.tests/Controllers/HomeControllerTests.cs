@@ -1,8 +1,8 @@
 ﻿using NUnit.Framework;
 using Microsoft.AspNetCore.Mvc;
-using web_net_nav.Controllers;
+using selenium_gui.Controllers;
 
-namespace web_net_nav.tests.Controllers
+namespace selenium_gui.tests.Controllers
 {
     [TestFixture]
     public class HomeControllerTests

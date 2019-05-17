@@ -1,8 +1,7 @@
 ﻿using NUnit.Framework;
-using Microsoft.AspNetCore.Mvc;
-using web_net_nav.Models;
+using selenium_gui.Models;
 
-namespace Tests
+namespace seleniumgui.tests.Models
 {
     [TestFixture]
     public class ErrorViewModelTests

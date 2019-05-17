@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
-namespace web_net_nav.FunctionalTests
+namespace selenium_gui.functiontests
 {
     [TestFixture]
     class MetaDataTests
@@ -15,7 +12,7 @@ namespace web_net_nav.FunctionalTests
         [SetUp]
         public void Init()
         {
-            _driver = new ChromeDriver(@"C:\Projects\web-net-nav\drivers");
+            _driver = new ChromeDriver(@"C:\Projects\selenium-gui\drivers");
         }
 
         [TearDown]

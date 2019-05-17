@@ -9,7 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics.CodeAnalysis;
 
-namespace web_net_nav
+namespace selenium_gui
 {
     [ExcludeFromCodeCoverage]
     public class Program

@@ -11,7 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Diagnostics.CodeAnalysis;
 
-namespace web_net_nav
+namespace selenium_gui
 {
     [ExcludeFromCodeCoverage]
     public class Startup

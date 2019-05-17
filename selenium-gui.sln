@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "web-net-nav", "web-net-nav\web-net-nav.csproj", "{36B1518C-6021-4F3E-BAE9-CFA430D8AC10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "selenium-gui", "selenium-gui\selenium-gui.csproj", "{36B1518C-6021-4F3E-BAE9-CFA430D8AC10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "web-net-nav.tests", "web-net-nav.tests\web-net-nav.tests.csproj", "{6DB6141A-75AD-47DA-A199-85B959FA1E73}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "selenium-gui.tests", "selenium-gui.tests\selenium-gui.tests.csproj", "{6DB6141A-75AD-47DA-A199-85B959FA1E73}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "web-net-nav.functiontests", "web-net-nav.functiontests\web-net-nav.functiontests.csproj", "{7F7B5CB8-15AF-43C9-A3B3-06F427B22DB3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "selenium-gui.functiontests", "selenium-gui.functiontests\selenium-gui.functiontests.csproj", "{7F7B5CB8-15AF-43C9-A3B3-06F427B22DB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

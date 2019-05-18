@@ -3,13 +3,48 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Web App Navigator</h1>
-    <p>A tool for automatically navigating to the page you wish to test within the Web App and creating quick bug reproduction scripts.</p>
-    
-    <h2>Run Sequence</h2>    
+    <h1 class="display-4">Create Sequence</h1>
+    <p>A tool to automate repetive navigation, generating bug reproduction scripts and to assist writing selenium functional test.</p>
+        
+</div>
+
+<div class="card text-center">
+    <div class="card-header">
+        <h2>Sequence</h2>
+    </div>
     <form asp-action="RunReceipe">
-    <input type="url" name="url" placeholder="Start URL">
-    <input type="submit" value="Submit">
-    </form> 
-    
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-3">
+                        <select id="inputState" class="form-control">
+                            <option selected>Go To URL</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <input type="url" class="form-control" name="url" placeholder="URL">
+                    </div>
+                </div>
+
+            </li>
+            <li class="list-group-item">
+                
+            </li>
+        </ul>
+
+        <div class="card-footer">
+            <div class="row">
+                <div class="col">
+                    <button type="submit" class="btn btn-success">Run Sequence</button>
+</div>
+                <div class="col">
+                    <button class="btn btn-primary">Add Step</button>
+                </div>
+                <div class="col">
+                    <button class="btn btn-info">Get Script</button>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>

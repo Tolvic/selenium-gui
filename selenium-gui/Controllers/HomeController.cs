@@ -17,15 +17,6 @@ namespace selenium_gui.Controllers
             return View("Index");
         }
 
-        public IActionResult RunReceipe(string url)
-        {
-            var driver = new ChromeDriver(@"C:\Projects\selenium-gui\drivers");
-
-            driver.Navigate().GoToUrl(url);
-
-            return RedirectToAction("Index");
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

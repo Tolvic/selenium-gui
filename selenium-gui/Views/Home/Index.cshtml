@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Selenium GUI";
 }
 
 <div class="text-center">
@@ -12,7 +12,7 @@
     <div class="card-header">
         <h2>Sequence</h2>
     </div>
-    <form asp-action="RunReceipe">
+    <form>
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
                 <div class="row">
@@ -36,7 +36,7 @@
         <div class="card-footer">
             <div class="row">
                 <div class="col">
-                    <button type="submit" class="btn btn-success">Run Sequence</button>
+                    <button type="button" id="run-sequence" class="btn btn-success">Run Sequence</button>
 </div>
                 <div class="col">
                     <button class="btn btn-primary">Add Step</button>

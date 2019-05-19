@@ -12,6 +12,10 @@ namespace selenium_gui.Controllers
 
         public IActionResult Run(string goToUrl)
         {
+            if (string.IsNullOrWhiteSpace(goToUrl))
+            {
+                throw new ArgumentException("Value cannot be null or whitespace.", nameof(goToUrl));
+            }
 
             var driver = new ChromeDriver(@"C:\Projects\selenium-gui\drivers");
 

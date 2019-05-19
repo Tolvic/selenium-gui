@@ -19,7 +19,7 @@ function SendRunSequence() {
         type: "GET",
         url: "/Sequence/Run",
         data: {
-            gotToUrl: "https://google.com"
+            goToUrl: ""
         },
         contentType: "application/json",
         dataType: "json",

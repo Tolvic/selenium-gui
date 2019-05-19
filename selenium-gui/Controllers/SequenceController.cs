@@ -10,11 +10,12 @@ namespace selenium_gui.Controllers
     public class SequenceController : Controller
     {
 
-        public IActionResult Run(string json)
+        public IActionResult Run(string goToUrl)
         {
+
             var driver = new ChromeDriver(@"C:\Projects\selenium-gui\drivers");
 
-            driver.Navigate().GoToUrl("https://google.com");
+            driver.Navigate().GoToUrl(goToUrl);
 
             return Ok();
         }

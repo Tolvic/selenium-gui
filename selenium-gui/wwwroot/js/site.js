@@ -8,9 +8,17 @@ $(document).ready(function() {
 
 function GetSequenceData() {
     var sequenceData = new Array();
+    i = 0
     $(".step").each(function () {
-        var stepType = $(this).contents().find(".step-type").val()
-        sequenceData.push(stepType);
+        var stepType = $(this).contents().find(".step-type").val();
+
+        var stepOptions = new Array();
+
+        sequenceData[i] = new Array();
+
+        sequenceData[i][stepType] = stepOptions;
+
+        i++;
     });
 
     return sequenceData;

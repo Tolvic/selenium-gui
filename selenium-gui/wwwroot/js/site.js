@@ -2,19 +2,22 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
-$(document).ready(function () {
+$(document).ready(function() {
     RunSequence();
-})
+});
+
+function GetSequenceData() {
+    var SequenceData = new Array();
+}
 
 function RunSequence() {
-    $("#run-sequence").click(function () {
+    $("#run-sequence").click(function() {
+        GetSequenceData();
         SendRunSequence();
-        console.log("run sequence")
-    })
+    });
 }
 
 function SendRunSequence() {
-    console.log("send run sequence")
     $.ajax({
         type: "GET",
         url: "/Sequence/Run",
@@ -24,7 +27,7 @@ function SendRunSequence() {
         contentType: "application/json",
         dataType: "json",
         success: function (response) {
-            alert("Finsihed")
+            alert("Finsihed");
         }
     });
 }

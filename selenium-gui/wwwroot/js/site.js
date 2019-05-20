@@ -7,7 +7,13 @@ $(document).ready(function() {
 });
 
 function GetSequenceData() {
-    var SequenceData = new Array();
+    var sequenceData = new Array();
+    $(".step").each(function () {
+        var stepType = $(this).contents().find(".step-type").val()
+        sequenceData.push(stepType);
+    });
+
+    return sequenceData;
 }
 
 function RunSequence() {

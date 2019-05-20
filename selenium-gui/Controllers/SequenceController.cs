@@ -10,16 +10,16 @@ namespace selenium_gui.Controllers
     public class SequenceController : Controller
     {
 
-        public IActionResult Run(string goToUrl)
+        public IActionResult Run(string sequenceData)
         {
-            if (string.IsNullOrWhiteSpace(goToUrl))
+            if (string.IsNullOrWhiteSpace(sequenceData))
             {
-                throw new ArgumentException("Value cannot be null or whitespace.", nameof(goToUrl));
+                throw new ArgumentException("Value cannot be null or whitespace.", nameof(sequenceData));
             }
 
             var driver = new ChromeDriver(@"C:\Projects\selenium-gui\drivers");
 
-            driver.Navigate().GoToUrl(goToUrl);
+            driver.Navigate().GoToUrl(sequenceData);
 
             return Ok();
         }

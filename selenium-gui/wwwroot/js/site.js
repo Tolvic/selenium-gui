@@ -7,36 +7,36 @@ $(document).ready(function() {
 });
 
 function GetSequenceData() {
-    var sequenceData = new Array();
-    i = 0
-    $(".step").each(function () {
-        var stepType = $(this).contents().find(".step-type").val();
+    var sequenceData = [];
+   $(".step").each(function () {
+        var type = $(this).contents().find(".step-type").val();
+        var options = [];
 
-        var stepOptions = new Array();
+        $(this).find(".step-input").each(function() {
+            options.push(($(this).val()));
+        });
 
-        sequenceData[i] = new Array();
+        var stepObject = { stepType: type, stepOpetions: options }
 
-        sequenceData[i][stepType] = stepOptions;
-
-        i++;
+        sequenceData.push(stepObject);
     });
 
-    return sequenceData;
+    return JSON.stringify(sequenceData);
 }
 
 function RunSequence() {
     $("#run-sequence").click(function() {
-        GetSequenceData();
-        SendRunSequence();
+        var sequenceData = GetSequenceData();
+        SendRunSequence(sequenceData);
     });
 }
 
-function SendRunSequence() {
+function SendRunSequence(sequenceData) {
     $.ajax({
         type: "GET",
         url: "/Sequence/Run",
         data: {
-            goToUrl: ""
+            sequenceData: sequenceData
         },
         contentType: "application/json",
         dataType: "json",

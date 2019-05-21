@@ -12,9 +12,9 @@ function GetSequenceData() {
         var type = getStepType($(this));
         var options = getStepOptions($(this));
         var stepObject = stepObjectInit(type, options);
-        sequenceData.push(stepObject);
+        sequenceData.push(JSON.stringify(stepObject));
     });
-
+    console.log(sequenceData);
     return JSON.stringify(sequenceData);
 }
 
@@ -39,8 +39,8 @@ function getStepOptions(step){
     return options;
 }
 
-function stepObjectInit(type, options) {
-    return { stepType: type, stepOpetions: options }
+function stepObjectInit(type, parameters) {
+    return { Type: type, Parameters: parameters }
 }
 
 function SendRunSequence(sequenceData) {
@@ -50,7 +50,7 @@ function SendRunSequence(sequenceData) {
         data: {
             sequenceData: sequenceData
         },
-        contentType: "application/json",
+        contentType: 'application/json',
         dataType: "json",
         success: function (response) {
             alert("Finsihed");

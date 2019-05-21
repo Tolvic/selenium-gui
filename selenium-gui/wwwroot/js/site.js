@@ -8,12 +8,10 @@ $(document).ready(function() {
 
 function GetSequenceData() {
    var sequenceData = [];
-   $(".step").each(function () {
-        var type = $(this).contents().find(".step-type").val();
-       var options = getStepOptions($(this));
-
-        var stepObject = { stepType: type, stepOpetions: options }
-
+    $(".step").each(function () {
+        var type = getStepType($(this));
+        var options = getStepOptions($(this));
+        var stepObject = stepObjectInit(type, options);
         sequenceData.push(stepObject);
     });
 
@@ -27,6 +25,10 @@ function RunSequence() {
     });
 }
 
+function getStepType(step) {
+    return step.contents().find(".step-type").val();
+}
+
 function getStepOptions(step){
     var options = [];
 
@@ -35,6 +37,10 @@ function getStepOptions(step){
     });
 
     return options;
+}
+
+function stepObjectInit(type, options) {
+    return { stepType: type, stepOpetions: options }
 }
 
 function SendRunSequence(sequenceData) {

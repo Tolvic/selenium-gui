@@ -7,14 +7,10 @@ $(document).ready(function() {
 });
 
 function GetSequenceData() {
-    var sequenceData = [];
+   var sequenceData = [];
    $(".step").each(function () {
         var type = $(this).contents().find(".step-type").val();
-        var options = [];
-
-        $(this).find(".step-input").each(function() {
-            options.push(($(this).val()));
-        });
+       var options = getStepOptions($(this));
 
         var stepObject = { stepType: type, stepOpetions: options }
 
@@ -29,6 +25,16 @@ function RunSequence() {
         var sequenceData = GetSequenceData();
         SendRunSequence(sequenceData);
     });
+}
+
+function getStepOptions(step){
+    var options = [];
+
+    step.find(".step-input").each(function () {
+        options.push(($(this).val()));
+    });
+
+    return options;
 }
 
 function SendRunSequence(sequenceData) {

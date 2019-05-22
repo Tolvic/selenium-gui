@@ -1,11 +1,14 @@
 ﻿@{
     ViewData["Title"] = "Selenium GUI";
 }
+@section Scripts{
+    <script src="~/js/Sequence.js"></script>
+}
 
 <div class="text-center">
     <h1 class="display-4">Create Sequence</h1>
     <p>A tool to automate repetive navigation, generating bug reproduction scripts and to assist writing selenium functional test.</p>
-        
+
 </div>
 
 <div class="card text-center">
@@ -43,14 +46,14 @@
 
             </li>
         </ul>
-        
+
 
 
         <div class="card-footer">
             <div class="row">
                 <div class="col">
                     <button type="button" id="run-sequence" class="btn btn-success">Run Sequence</button>
-</div>
+                </div>
                 <div class="col">
                     <button class="btn btn-primary">Add Step</button>
                 </div>

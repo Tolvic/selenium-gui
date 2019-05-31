@@ -1,6 +1,6 @@
 ﻿var sequence = (function () {
     // Public functions
-    function runSequence() {
+    function run() {
         $("#run-sequence").click(function () {
             var sequenceData = getSequenceData();
             sendRunSequence(sequenceData);
@@ -56,12 +56,12 @@
 
     // Expose functions
     return {
-        runSequence: runSequence
+        run: run
     }
 })();
 
 $(document).ready(function () {
-    sequence.runSequence();
+    sequence.run();
 });
 
 

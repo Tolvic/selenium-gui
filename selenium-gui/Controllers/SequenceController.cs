@@ -17,12 +17,7 @@ namespace selenium_gui.Controllers
         {
             var sequence = new selenium_gui.Models.Sequence().Build(sequenceData);
 
-            var driver = new ChromeDriver(@"C:\Projects\selenium-gui\drivers");
-
-            foreach (Step step in sequence.Steps)
-            {
-                driver.Navigate().GoToUrl(step.Parameters[0]);
-            }
+            sequence.Run();
 
             return Ok();
         }

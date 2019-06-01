@@ -6,7 +6,7 @@ using selenium_gui.Models;
 
 namespace selenium_gui.Interfaces
 {
-    interface ISequence
+    public interface ISequence
     {
         void Run();
     }

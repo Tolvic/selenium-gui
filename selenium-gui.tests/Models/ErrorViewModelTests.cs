@@ -1,8 +1,10 @@
-﻿using NUnit.Framework;
+﻿using System.Diagnostics.CodeAnalysis;
+using NUnit.Framework;
 using selenium_gui.Models;
 
 namespace seleniumgui.tests.Models
 {
+    [ExcludeFromCodeCoverage]
     [TestFixture]
     public class ErrorViewModelTests
     {

@@ -1,9 +1,11 @@
-﻿using NUnit.Framework;
+﻿using System.Diagnostics.CodeAnalysis;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
 namespace selenium_gui.functiontests
 {
+    [ExcludeFromCodeCoverage]
     [TestFixture]
     class MetaDataTests
     {

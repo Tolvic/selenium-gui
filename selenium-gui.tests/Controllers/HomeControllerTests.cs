@@ -1,9 +1,11 @@
-﻿using NUnit.Framework;
+﻿using System.Diagnostics.CodeAnalysis;
+using NUnit.Framework;
 using Microsoft.AspNetCore.Mvc;
 using selenium_gui.Controllers;
 
 namespace selenium_gui.tests.Controllers
 {
+    [ExcludeFromCodeCoverage]
     [TestFixture]
     public class HomeControllerTests
     {

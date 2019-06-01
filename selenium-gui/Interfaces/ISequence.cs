@@ -8,8 +8,6 @@ namespace selenium_gui.Interfaces
 {
     interface ISequence
     {
-        Sequence Build(string sequenceData);
-
         void Run();
     }
 }

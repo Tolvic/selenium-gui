@@ -11,7 +11,7 @@ namespace selenium_gui.ModelBuilders
     public class SequenceModelBuilder : ISequenceModelBuilder
     {
 
-        public Sequence Build(string sequenceData)
+        public ISequence Build(string sequenceData)
         {
             if (string.IsNullOrWhiteSpace(sequenceData))
             {

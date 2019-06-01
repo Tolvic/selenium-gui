@@ -4,6 +4,8 @@ using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using NUnit.Framework;
 using selenium_gui.ModelBuilders;
+using selenium_gui.Models;
+using FluentAssertions;
 
 namespace selenium_gui.tests.ModelBuillders
 {
@@ -43,6 +45,32 @@ namespace selenium_gui.tests.ModelBuillders
             Assert.Throws<ArgumentException>(() => _sequenceModelBuilder.Build(null));
         }
 
+        [Test]
+        public void BuildsSequence()
+        {
+            // Arrange
+            var sequenceData = "[\"{\\\"Type\\\":\\\"Go To URL\\\",\\\"Parameters\\\":[\\\"https://google.com\\\"]}\"]";
+            Sequence expectedResult = new Sequence()
+            {
+                Steps = new List<Step>() {
+                    new Step()
+                    {
+                        Type = "Go To URL",
+                        Parameters = new List<string>()
+                        {
+                            "https://google.com"
+                        }
+                        
+                    }
+                }
+            };
+
+            // Act
+            var result = _sequenceModelBuilder.Build(sequenceData);
+
+            // Assert
+            result.Should().BeEquivalentTo(expectedResult);
+        }
 
     }
 }

@@ -32,6 +32,17 @@ namespace selenium_gui.tests.ModelBuillders
             Assert.Throws<ArgumentException>(() => _sequenceModelBuilder.Build(sequenceData));
         }
 
+        [Test]
+        public void ThrowsExceptionWhenPassedNull()
+        {
+            // Arrange
+
+            // Act
+
+            // Assert
+            Assert.Throws<ArgumentException>(() => _sequenceModelBuilder.Build(null));
+        }
+
 
     }
 }

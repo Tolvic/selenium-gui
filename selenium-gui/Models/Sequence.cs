@@ -4,10 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using OpenQA.Selenium.Chrome;
+using selenium_gui.Interfaces;
 
 namespace selenium_gui.Models
 {
-    public class Sequence
+    public class Sequence : ISequence
     {
         public List<Step> Steps { get; set; }
 

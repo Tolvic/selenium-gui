@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using OpenQA.Selenium.Chrome;
 
 namespace selenium_gui.Models
 {
@@ -31,6 +32,16 @@ namespace selenium_gui.Models
             {
                 Steps = steps
             };
+        }
+
+        public void Run()
+        {
+            var driver = new ChromeDriver(@"C:\Projects\selenium-gui\drivers");
+
+            foreach (Step step in Steps)
+            {
+                driver.Navigate().GoToUrl(step.Parameters[0]);
+            }
         }
     }
 }

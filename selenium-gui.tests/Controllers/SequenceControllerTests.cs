@@ -31,6 +31,21 @@ namespace selenium_gui.tests.Controllers
         }
 
         [Test]
+        public void RunCallSequenceModelBuilderBuildMethod()
+        {
+            // Arrange
+            var sequenceController = new SequenceController(_sequenceModelBuilderMock.Object);
+
+
+            // Act
+            sequenceController.Run("test string");
+
+            // Assert
+            _sequenceModelBuilderMock.Verify(x => x.Build(It.IsAny<string>()), Times.Once());
+
+        }
+
+        [Test]
         public void RunCallsSequenceRunMethod()
         {
             // Arrange
@@ -38,13 +53,14 @@ namespace selenium_gui.tests.Controllers
 
 
             // Act
-            var result = sequenceController.Run("test string");
+            sequenceController.Run("test string");
 
             // Assert
             _sequenceMock.Verify(x => x.Run(), Times.Once());
 
         }
 
+        [Test]
         public void RunReturnsOKStatus()
         {
             // Arrange

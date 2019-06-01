@@ -27,7 +27,7 @@ namespace selenium_gui.Models
                 steps.Add(JsonConvert.DeserializeObject<Step>(step));
             }
 
-            var sequence = new Sequence
+            return new Sequence
             {
                 Steps = steps
             };

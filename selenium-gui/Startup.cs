@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Diagnostics.CodeAnalysis;
 using selenium_gui.Interfaces;
+using selenium_gui.ModelBuilders;
 using selenium_gui.Models;
 
 namespace selenium_gui
@@ -37,7 +38,7 @@ namespace selenium_gui
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddTransient<ISequence, Sequence>();
+            services.AddTransient<ISequenceModelBuilder, SequenceModelBuilder>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

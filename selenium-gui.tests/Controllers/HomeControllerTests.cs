@@ -18,10 +18,10 @@ namespace selenium_gui.tests.Controllers
         public void IndexShouldReturnIndexView()
         {
             // Arrange
-            var HomeController = new HomeController();
+            var homeController = new HomeController();
 
             // Act
-            var result = HomeController.Index() as ViewResult;
+            var result = homeController.Index() as ViewResult;
 
             // Assert
             Assert.AreEqual("Index", result.ViewName);

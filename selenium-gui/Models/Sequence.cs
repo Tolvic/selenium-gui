@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -10,6 +11,7 @@ namespace selenium_gui.Models
 {
     public class Sequence : ISequence
     {
+        [ExcludeFromCodeCoverage]
         public List<Step> Steps { get; set; }
 
         public void Run()

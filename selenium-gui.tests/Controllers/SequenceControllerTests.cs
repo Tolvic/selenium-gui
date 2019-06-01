@@ -31,6 +31,20 @@ namespace selenium_gui.tests.Controllers
         }
 
         [Test]
+        public void RunCallsSequenceRunMethod()
+        {
+            // Arrange
+            var sequenceController = new SequenceController(_sequenceModelBuilderMock.Object);
+
+
+            // Act
+            var result = sequenceController.Run("test string");
+
+            // Assert
+            _sequenceMock.Verify(x => x.Run(), Times.Once());
+
+        }
+
         public void RunReturnsOKStatus()
         {
             // Arrange

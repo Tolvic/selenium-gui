@@ -10,6 +10,12 @@ namespace selenium_gui.ModelBuilders
 {
     public class SequenceModelBuilder : ISequenceModelBuilder
     {
+        private readonly IDriverModelBuilder _driverModelBuilder;
+
+        public SequenceModelBuilder(IDriverModelBuilder driverModelBuilder)
+        {
+            _driverModelBuilder = driverModelBuilder;
+        }
 
         public ISequence Build(string sequenceData)
         {
@@ -30,6 +36,7 @@ namespace selenium_gui.ModelBuilders
 
             return new Sequence
             {
+                Driver = _driverModelBuilder.Build(),
                 Steps = steps
             };
         }

@@ -6,6 +6,8 @@ using NUnit.Framework;
 using selenium_gui.ModelBuilders;
 using selenium_gui.Models;
 using FluentAssertions;
+using Moq;
+using selenium_gui.Interfaces;
 
 namespace selenium_gui.tests.ModelBuillders
 {
@@ -13,12 +15,16 @@ namespace selenium_gui.tests.ModelBuillders
     [TestFixture]
     class SequenceModelBuilderTests
     {
+        private Mock<IDriverModelBuilder> _driverModelBuilderMock;
         private SequenceModelBuilder _sequenceModelBuilder;
 
         [SetUp]
         public void Setup()
         {
-            _sequenceModelBuilder = new SequenceModelBuilder();
+            _driverModelBuilderMock = new Mock<IDriverModelBuilder>();
+            _sequenceModelBuilder = new SequenceModelBuilder(_driverModelBuilderMock.Object);
+
+            _driverModelBuilderMock.Setup(x => x.Build());
         }
 
         [Test]

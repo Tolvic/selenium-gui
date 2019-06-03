@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using selenium_gui.Interfaces;
 
@@ -14,13 +15,14 @@ namespace selenium_gui.Models
         [ExcludeFromCodeCoverage]
         public List<Step> Steps { get; set; }
 
+        [ExcludeFromCodeCoverage]
+        public IWebDriver Driver { get; set; }
+
         public void Run()
         {
-            var driver = new ChromeDriver(@"C:\Projects\selenium-gui\drivers");
-
             foreach (Step step in Steps)
             {
-                driver.Navigate().GoToUrl(step.Parameters[0]);
+                Driver.Navigate().GoToUrl(step.Parameters[0]);
             }
         }
     }

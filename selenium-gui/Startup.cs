@@ -10,9 +10,13 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Diagnostics.CodeAnalysis;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Edge;
 using selenium_gui.Interfaces;
 using selenium_gui.ModelBuilders;
 using selenium_gui.Models;
+using ServiceCollection = Microsoft.Extensions.DependencyInjection.ServiceCollection;
 
 namespace selenium_gui
 {
@@ -39,6 +43,7 @@ namespace selenium_gui
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddTransient<ISequenceModelBuilder, SequenceModelBuilder>();
+            services.AddTransient<IDriverModelBuilder, DriverModelBuilder>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

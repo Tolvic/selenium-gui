@@ -30,5 +30,10 @@ namespace selenium_gui.Controllers
 
             return Ok();
         }
+
+        public IActionResult GetStepTemplate()
+        {
+            return PartialView("_step");
+        }
     }
 }

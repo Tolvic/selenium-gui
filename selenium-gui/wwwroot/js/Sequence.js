@@ -1,9 +1,15 @@
 ﻿var sequence = (function () {
     // Public functions
     function run() {
-        $("#run-sequence").click(function () {
+        $("#run-sequence").click(function() {
             var sequenceData = getSequenceData();
             sendRunSequence(sequenceData);
+        });
+    }
+
+    function addStep() {
+        $("#add-step").click(function() {
+            console.log("Add Step function ran");
         });
     }
 
@@ -56,12 +62,14 @@
 
     // Expose functions
     return {
-        run: run
+        run: run,
+        getStepTemplate: getStepTemplate
     }
 })();
 
 $(document).ready(function () {
     sequence.run();
+    sequence.addStep();
 });
 
 

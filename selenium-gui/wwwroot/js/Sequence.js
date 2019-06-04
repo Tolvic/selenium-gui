@@ -1,28 +1,26 @@
 ﻿var sequence = (function () {
     // Public functions
     function addEventBindings() {
-        run();
-        addStep();
-        deleteStep();
+        setUpRunEventBinding();
+        setUpAddStepEventBinding();
+        setUpDeleteStepEventBinding();
     }
 
-   
-
-    // private functions
-    function run() {
+   // private functions
+    function setUpRunEventBinding() {
         $("#run-sequence").click(function () {
             var sequenceData = getSequenceData();
             sendRunSequence(sequenceData);
         });
     }
 
-    function addStep() {
+    function setUpAddStepEventBinding() {
         $("#add-step").click(function () {
             getStepTemplate();
         });
     }
 
-    function deleteStep() {
+    function setUpDeleteStepEventBinding() {
         $(".delete-step").click(function () {
             $(this).closest("li").remove();
         });
@@ -87,7 +85,7 @@
 
     function addStepToSequence(stepTemplate) {
         $("#sequence-list").append(stepTemplate);
-        deleteStep();
+        setUpDeleteStepEventBinding();
     }
 
     // Expose functions

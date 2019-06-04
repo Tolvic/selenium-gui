@@ -9,9 +9,7 @@
 
     function addStep() {
         $("#add-step").click(function() {
-            console.log("Add Step function ran");
-            var stepTemplate = getStepTemplate();
-            console.log(stepTemplate);
+            getStepTemplate();
         });
     }
 
@@ -63,19 +61,19 @@
     }
 
     function getStepTemplate() {
-        var stepTemplate;
-
-        $.ajax({
+         $.ajax({
             type: "GET",
             url: "/Sequence/GetStepTemplate",
             contentType: 'application/json',
-            dataType: "json",
             success: function(response) {
-                stepTemplate = response;
+                console.log(response);
+                addStepToSequence(response);
             }
         });
+    }
 
-        return stepTemplate;
+    function addStepToSequence(stepTemplate) {
+        $("#sequence-list").append(stepTemplate);
     }
 
     // Expose functions

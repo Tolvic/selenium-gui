@@ -1,13 +1,13 @@
 ﻿var sequence = (function () {
     // Public functions
     function addEventBindings() {
-        setUpRunEventBinding();
+        setUpRunSequenceEventBinding();
         setUpAddStepEventBinding();
         setUpDeleteStepEventBinding();
     }
 
    // private functions
-    function setUpRunEventBinding() {
+    function setUpRunSequenceEventBinding() {
         $("#run-sequence").click(function () {
             var sequenceData = getSequenceData();
             sendRunSequence(sequenceData);

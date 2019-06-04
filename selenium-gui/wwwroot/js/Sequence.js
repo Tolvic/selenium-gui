@@ -10,6 +10,8 @@
     function addStep() {
         $("#add-step").click(function() {
             console.log("Add Step function ran");
+            var stepTemplate = getStepTemplate();
+            console.log(stepTemplate);
         });
     }
 
@@ -60,10 +62,26 @@
         });
     }
 
+    function getStepTemplate() {
+        var stepTemplate;
+
+        $.ajax({
+            type: "GET",
+            url: "/Sequence/GetStepTemplate",
+            contentType: 'application/json',
+            dataType: "json",
+            success: function(response) {
+                stepTemplate = response;
+            }
+        });
+
+        return stepTemplate;
+    }
+
     // Expose functions
     return {
         run: run,
-        getStepTemplate: getStepTemplate
+        addStep: addStep
     }
 })();
 

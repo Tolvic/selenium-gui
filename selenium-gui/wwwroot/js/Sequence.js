@@ -13,6 +13,12 @@
         });
     }
 
+    function deleteStep() {
+        $(".delete-step").click(function() {
+            $(this).closest("li").remove();
+        });
+    }
+
     // private functions
     function getSequenceData() {
         var sequenceData = [];
@@ -66,7 +72,6 @@
             url: "/Sequence/GetStepTemplate",
             contentType: 'application/json',
             success: function(response) {
-                console.log(response);
                 addStepToSequence(response);
             }
         });
@@ -74,18 +79,21 @@
 
     function addStepToSequence(stepTemplate) {
         $("#sequence-list").append(stepTemplate);
+        deleteStep();
     }
 
     // Expose functions
     return {
         run: run,
-        addStep: addStep
+        addStep: addStep,
+        deleteStep: deleteStep
     }
 })();
 
 $(document).ready(function () {
     sequence.run();
     sequence.addStep();
+    sequence.deleteStep();
 });
 
 

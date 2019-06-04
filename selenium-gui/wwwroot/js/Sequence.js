@@ -1,25 +1,33 @@
 ﻿var sequence = (function () {
     // Public functions
+    function addEventBindings() {
+        run();
+        addStep();
+        deleteStep();
+    }
+
+   
+
+    // private functions
     function run() {
-        $("#run-sequence").click(function() {
+        $("#run-sequence").click(function () {
             var sequenceData = getSequenceData();
             sendRunSequence(sequenceData);
         });
     }
 
     function addStep() {
-        $("#add-step").click(function() {
+        $("#add-step").click(function () {
             getStepTemplate();
         });
     }
 
     function deleteStep() {
-        $(".delete-step").click(function() {
+        $(".delete-step").click(function () {
             $(this).closest("li").remove();
         });
     }
 
-    // private functions
     function getSequenceData() {
         var sequenceData = [];
         $(".step").each(function () {
@@ -84,16 +92,12 @@
 
     // Expose functions
     return {
-        run: run,
-        addStep: addStep,
-        deleteStep: deleteStep
+        addEventBindings: addEventBindings
     }
 })();
 
 $(document).ready(function () {
-    sequence.run();
-    sequence.addStep();
-    sequence.deleteStep();
+    sequence.addEventBindings();
 });
 
 

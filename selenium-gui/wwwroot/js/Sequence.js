@@ -16,8 +16,9 @@
     }
 
     function setUpStepTypeSelectionBinding() {
-        $(".step-type").change(function() {
-            console.log("Step Type Change");
+        $(".step-type").change(function () {
+            var stepInputs = $(".step-input")
+            $(this).closest("li").find(stepInputs).hide();
         });
     }
 

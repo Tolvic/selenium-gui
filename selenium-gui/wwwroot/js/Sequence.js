@@ -17,10 +17,11 @@
 
     function setUpStepTypeSelectionBinding() {
         $(".step-type").change(function () {
-            var stepInputs = $(".step-inputs");
+            var stepInputs = $(this).closest("li").find(".step-inputs");
             $(this).closest("li").find(stepInputs).hide();
+
             var stepType = $(this).val().toLowerCase().replace(/ /g, "-");
-            $("#" + stepType + "-inputs").show();
+            $(this).closest("li").find("#" + stepType + "-inputs").show();
 
             console.log(stepType);
         });
@@ -98,6 +99,7 @@
     function addStepToSequence(stepTemplate) {
         $("#sequence-list").append(stepTemplate);
         setUpDeleteStepEventBinding();
+        setUpStepTypeSelectionBinding();
     }
 
     // Expose functions

@@ -1,13 +1,30 @@
 ﻿<li class="list-group-item step-li">
     <div class="row step">
-        <div class="col-3">
+        <div class="col-auto">
             <select class="form-control step-type">
                 <option selected>Go To URL</option>
-                <option>...</option>
+                <option>Find Element</option>
             </select>
         </div>
         <div class="col">
-            <input type="url" class="form-control step-input" name="url" placeholder="URL">
+            <div id="navigate-to-url-inputs" class="row">
+                <input type="url" class="form-control step-input" name="url" placeholder="URL">
+            </div>
+            
+            <div id="find-element" class="row d-none">
+                <select class="form-control col-3 mr-sm-2">
+                    <option>By Class Name</option>
+                    <option>By CSS Selector</option>
+                    <option selected>By ID</option>
+                    <option>By Link text</option>
+                    <option>By Name</option>
+                    <option>By Partial Link Text</option>
+                    <option>By Tag Name</option>
+                    <option>By XPath</option>
+                </select>
+                <input type="text" class="form-control step-input col" name="url" placeholder="Selector">
+            </div>
+            
         </div>
         <div class="col-1">
             <button type="button" class="btn btn-link delete-step"><i class="fas fa-times fa-lg"></i></button>

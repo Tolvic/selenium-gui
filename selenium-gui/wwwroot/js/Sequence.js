@@ -4,6 +4,7 @@
         setUpRunSequenceEventBinding();
         setUpAddStepEventBinding();
         setUpDeleteStepEventBinding();
+        setUpStepTypeSelectionBinding();
     }
 
    // private functions
@@ -11,6 +12,12 @@
         $("#run-sequence").click(function () {
             var sequenceData = getSequenceData();
             sendRunSequence(sequenceData);
+        });
+    }
+
+    function setUpStepTypeSelectionBinding() {
+        $(".step-type").change(function() {
+            console.log("Step Type Change");
         });
     }
 

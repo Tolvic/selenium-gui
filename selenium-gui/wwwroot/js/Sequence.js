@@ -17,14 +17,23 @@
 
     function setUpStepTypeSelectionBinding() {
         $(".step-type").change(function () {
-            var stepInputs = $(this).closest("li").find(".step-inputs");
-            $(this).closest("li").find(stepInputs).hide();
-
-            var stepType = $(this).val().toLowerCase().replace(/ /g, "-");
-            $(this).closest("li").find("#" + stepType + "-inputs").show();
-
-            console.log(stepType);
+            toggleStepInputs($(this));
         });
+    }
+
+    function toggleStepInputs(stepType) {
+        hideAllStepInputs($(stepType));
+        showSelectedStepInputs($(stepType));
+    }
+
+    function hideAllStepInputs(stepType) {
+        var stepInputs = $(stepType).closest("li").find(".step-inputs");
+            $(stepType).closest("li").find(stepInputs).hide();
+    }
+
+    function showSelectedStepInputs(stepType) {
+        var stepInputsId = $(stepType).val().toLowerCase().replace(/ /g, "-");
+        $(stepType).closest("li").find("#" + stepInputsId + "-inputs").show();
     }
 
     function setUpAddStepEventBinding() {

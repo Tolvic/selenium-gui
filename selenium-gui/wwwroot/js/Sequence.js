@@ -17,8 +17,12 @@
 
     function setUpStepTypeSelectionBinding() {
         $(".step-type").change(function () {
-            var stepInputs = $(".step-input")
+            var stepInputs = $(".step-inputs");
             $(this).closest("li").find(stepInputs).hide();
+            var stepType = $(this).val().toLowerCase().replace(/ /g, "-");
+            $("#" + stepType + "-inputs").show();
+
+            console.log(stepType);
         });
     }
 

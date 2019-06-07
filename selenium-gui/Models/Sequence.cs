@@ -35,7 +35,7 @@ namespace selenium_gui.Models
                         break;
 
                     case "Element Operations":
-                        element?.Click();
+                        ElementOperations(element, step);
                         break;
                 }
 
@@ -82,6 +82,16 @@ namespace selenium_gui.Models
             }
 
             return element;
+        }
+
+        private void ElementOperations(IWebElement element, Step step)
+        {
+            switch (step.Parameters[0])
+            {
+                case "Click":
+                    element?.Click();
+                    break;
+            }
         }
 
 

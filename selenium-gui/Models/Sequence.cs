@@ -31,42 +31,7 @@ namespace selenium_gui.Models
                         break;
 
                     case "Find Element":
-
-                        switch (step.Parameters[0])
-                        {
-                            case "By Class Name":
-                                element = Driver.FindElement(By.ClassName(step.Parameters[1]));
-                                break;
-
-                            case "By CSS Selector":
-                                element = Driver.FindElement(By.CssSelector(step.Parameters[1]));
-                                break;
-
-                            case "By ID":
-                                element = Driver.FindElement(By.Id(step.Parameters[1]));
-                                break;
-
-                            case "By Link text":
-                                element = Driver.FindElement(By.LinkText(step.Parameters[1]));
-                                break;
-
-                            case "By Name":
-                                element = Driver.FindElement(By.Name(step.Parameters[1]));
-                                break;
-
-                            case "By Partial Link":
-                                element = Driver.FindElement(By.PartialLinkText(step.Parameters[1]));
-                                break;
-
-                            case "By Tag Name":
-                                element = Driver.FindElement(By.TagName(step.Parameters[1]));
-                                break;
-
-                            case "By XPath":
-                                element = Driver.FindElement(By.XPath(step.Parameters[1]));
-                                break;
-                        }
-
+                        element = FindElement(step);
                         break;
 
                     case "Element Operations":
@@ -76,5 +41,50 @@ namespace selenium_gui.Models
 
             }
         }
+
+        private IWebElement FindElement(Step step)
+        {
+            IWebElement element = null;
+
+            switch (step.Parameters[0])
+            {
+                case "By Class Name":
+                    element = Driver.FindElement(By.ClassName(step.Parameters[1]));
+                    break;
+
+                case "By CSS Selector":
+                    element = Driver.FindElement(By.CssSelector(step.Parameters[1]));
+                    break;
+
+                case "By ID":
+                    element = Driver.FindElement(By.Id(step.Parameters[1]));
+                    break;
+
+                case "By Link text":
+                    element = Driver.FindElement(By.LinkText(step.Parameters[1]));
+                    break;
+
+                case "By Name":
+                    element = Driver.FindElement(By.Name(step.Parameters[1]));
+                    break;
+
+                case "By Partial Link":
+                    element = Driver.FindElement(By.PartialLinkText(step.Parameters[1]));
+                    break;
+
+                case "By Tag Name":
+                    element = Driver.FindElement(By.TagName(step.Parameters[1]));
+                    break;
+
+                case "By XPath":
+                    element = Driver.FindElement(By.XPath(step.Parameters[1]));
+                    break;
+            }
+
+            return element;
+        }
+
+
+
     }
 }

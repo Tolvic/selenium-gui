@@ -54,7 +54,6 @@
             var type = getStepType($(this));
             var options = getStepOptions($(this));
             var stepObject = stepObjectInit(type, options);
-
             sequenceData.push(JSON.stringify(stepObject));
         });
 
@@ -68,10 +67,9 @@
     function getStepOptions(step) {
         var options = [];
 
-        step.find(".step-input").each(function () {
+        step.find(".step-inputs:visible").find(".step-input").each(function () {
             options.push(($(this).val()));
         });
-
         return options;
     }
 

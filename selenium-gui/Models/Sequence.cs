@@ -91,6 +91,18 @@ namespace selenium_gui.Models
                 case "Click":
                     element?.Click();
                     break;
+
+               case "Clear":
+                    element?.Clear();
+                    break;
+
+                case "Send Keys":
+                    element?.SendKeys(step.Parameters[1]);
+                    break;
+
+                case "submit":
+                    element?.Clear();
+                    break;
             }
         }
 

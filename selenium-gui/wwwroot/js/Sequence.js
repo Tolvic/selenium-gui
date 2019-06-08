@@ -6,6 +6,7 @@
         setUpDeleteStepEventBinding();
         setUpStepTypeSelectionBinding();
         setUpStepInputBinding();
+        setUpSecondaryOptionsBindings();
     }
 
    // private functions
@@ -53,6 +54,27 @@
         var displaySecondaryInputFlag = $("option:selected", primaryInputs).data("secondary-input");
         if (displaySecondaryInputFlag) {
             secondaryInputs.show();
+        }
+    }
+
+    function setUpSecondaryOptionsBindings() {
+        console.log("setupSecondaryOptionBidings")
+        $(".secondary-options").change(function() {
+            toggleTertiaryInputs($(this));
+        });
+    }
+
+    function toggleTertiaryInputs(secondaryInputs) {
+        var tertiaryInputs = $(secondaryInputs).closest("div.step-inputs").find(".tertiary-input");
+        console.log(tertiaryInputs);
+        tertiaryInputs.hide();
+        showTertiaryInputs(secondaryInputs, tertiaryInputs);
+    }
+
+    function showTertiaryInputs(secondaryInputs, tertiaryInputs) {
+        var displayTertiaryInputFlag = $("option:selected", secondaryInputs).data("tertiary-input");
+        if (displayTertiaryInputFlag) {
+            tertiaryInputs.show();
         }
     }
 

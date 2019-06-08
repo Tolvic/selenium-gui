@@ -2,6 +2,7 @@
     <div class="row step">
         <div class="col-auto">
             <select class="form-control step-type">
+                <option>Alert Operations</option>
                 <option>Browser Operations</option>
                 <option>Element Operations</option>
                 <option>Find Element</option>
@@ -13,6 +14,15 @@
         </div>
 
         <div class="col">
+            <div id="alert-operations-inputs" class="row step-inputs" style="display: none;">
+                <select class="form-control step-input primary-input col">
+                    <option>Accept</option>
+                    <option>Dismiss</option>
+                    <option data-secondary-input="true">Send Keys</option>
+                </select>
+                <input type="text" class="form-control step-input secondary-input col-9 ml-sm-2" name="select" placeholder="Text">
+            </div>
+
             <div id="browser-operations-inputs" class="row step-inputs" style="display: none;">
                 <select class="form-control step-input primary-input col">
                     <option selected>Maximize</option>

@@ -25,6 +25,9 @@ namespace selenium_gui.Models
             {
                 switch (step.Type)
                 {
+                    case "Alert Operations":
+                        AlertOperations(step);
+                        break;
                     case "Browser Operations":
                         BrowserOperations(step);
                         break;
@@ -48,6 +51,22 @@ namespace selenium_gui.Models
                         break;
                 }
 
+            }
+        }
+
+        public void AlertOperations(Step step)
+        {
+            switch (step.Parameters[0])
+            {
+                case "Accept":
+                    Driver.SwitchTo().Alert().Accept();
+                    break;
+                case "Dismiss":
+                    Driver.SwitchTo().Alert().Dismiss();
+                    break;
+                case "Send Keys":
+                    Driver.SwitchTo().Alert().SendKeys(step.Parameters[1]);
+                    break;
             }
         }
 

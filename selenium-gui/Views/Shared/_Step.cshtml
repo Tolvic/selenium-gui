@@ -6,6 +6,7 @@
                 <option>Element Operations</option>
                 <option>Find Element</option>
                 <option selected>Navigate</option>
+                <option>Wait</option>
             </select>
         </div>
 
@@ -17,15 +18,14 @@
                 </select>
             </div>
 
-            <div id="navigate-inputs" class="row step-inputs">
+            <div id="element-operations-inputs" class="row step-inputs" style="display: none;">
                 <select class="form-control step-input primary-input col">
-                    <option>Back</option>
-                    <option>Forward</option>
-                    <option data-secondary-input="true" selected>Go To URL</option>
-                    <option>Refresh</option>
-
+                    <option selected>Click</option>
+                    <option>Clear</option>
+                    <option data-secondary-input="true">Send Keys</option>
+                    <option>Submit</option>
                 </select>
-                <input type="url" class="form-control step-input secondary-input col-9 ml-sm-2" name="url" placeholder="URL">
+                <input type="text" class="form-control step-input secondary-input col-9 ml-sm-2" name="keys" placeholder="Text" style="display: none;">
             </div>
 
             <div id="find-element-inputs" class="row step-inputs" style="display: none;">
@@ -42,14 +42,24 @@
                 <input type="text" class="form-control step-input secondary-input col-9 ml-sm-2" name="selector" placeholder="Selector">
             </div>
 
-            <div id="element-operations-inputs" class="row step-inputs" style="display: none;">
-                <select class="form-control step-input primary-input col">">
-                    <option selected>Click</option>
-                    <option>Clear</option>
-                    <option data-secondary-input="true">Send Keys</option>
-                    <option>Submit</option>
+            <div id="navigate-inputs" class="row step-inputs">
+                <select class="form-control step-input primary-input col">
+                    <option>Back</option>
+                    <option>Forward</option>
+                    <option data-secondary-input="true" selected>Go To URL</option>
+                    <option>Refresh</option>
+
                 </select>
-                <input type="text" class="form-control step-input secondary-input col-9 ml-sm-2" name="keys" placeholder="Text" style="display: none;">
+                <input type="url" class="form-control step-input secondary-input col-9 ml-sm-2" name="url" placeholder="URL">
+            </div>
+
+            <div id="wait-inputs" class="row step-inputs" style="display: none;">
+                <input type="number" class="form-control step-input col-9" name="wait" placeholder="number">
+                <select class="form-control step-input col ml-sm-2">
+                    <option selected>Seconds</option>
+                    <option>Miliseconds</option>
+                </select>
+                
             </div>
 
         </div>

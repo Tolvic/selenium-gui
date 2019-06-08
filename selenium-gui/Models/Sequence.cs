@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Newtonsoft.Json;
+using System.Threading;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
 using selenium_gui.Interfaces;
 
 namespace selenium_gui.Models
@@ -39,6 +35,9 @@ namespace selenium_gui.Models
                     case "Navigate":
                         Navigate(step);
                         break;
+                    case "Wait":
+                        Wait(step);
+                        break;
 
 
 
@@ -57,25 +56,6 @@ namespace selenium_gui.Models
                     break;
                 case "Quit":
                     Driver.Quit();
-                    break;
-            }
-        }
-
-        private void Navigate(Step step)
-        {
-            switch (step.Parameters[0])
-            {
-                case "Back":
-                    Driver.Navigate().Back();
-                    break;
-                case "Forward":
-                    Driver.Navigate().Forward();
-                    break;
-                case "Go To URL":
-                    Driver.Navigate().GoToUrl(step.Parameters[1]);
-                    break;
-                case "Refresh":
-                    Driver.Navigate().Refresh();
                     break;
             }
         }
@@ -144,7 +124,34 @@ namespace selenium_gui.Models
             }
         }
 
+        private void Navigate(Step step)
+        {
+            switch (step.Parameters[0])
+            {
+                case "Back":
+                    Driver.Navigate().Back();
+                    break;
+                case "Forward":
+                    Driver.Navigate().Forward();
+                    break;
+                case "Go To URL":
+                    Driver.Navigate().GoToUrl(step.Parameters[1]);
+                    break;
+                case "Refresh":
+                    Driver.Navigate().Refresh();
+                    break;
+            }
+        }
 
+        private void Wait(Step step)
+        {
+            var time = Convert.ToInt32(step.Parameters[0]);
+            if (step.Parameters[1] == "Seconds")
+            {
+                time = time * 1000;
+            }
+            Thread.Sleep(time);
+        }
 
     }
 }

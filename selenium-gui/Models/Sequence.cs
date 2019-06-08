@@ -6,7 +6,6 @@ using System.Threading;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using selenium_gui.Interfaces;
-using SeleniumExtras.WaitHelpers;
 
 namespace selenium_gui.Models
 {
@@ -37,6 +36,9 @@ namespace selenium_gui.Models
                         break;
                     case "Navigate":
                         Navigate(step);
+                        break;
+                    case "Select And Deselect":
+                        SelectAndDeselect(element, step);
                         break;
                     case "Wait":
                         Wait(step);
@@ -121,7 +123,7 @@ namespace selenium_gui.Models
                     break;
 
                 case "submit":
-                    element?.Clear();
+                    element?.Submit();
                     break;
             }
         }
@@ -143,6 +145,39 @@ namespace selenium_gui.Models
                     Driver.Navigate().Refresh();
                     break;
             }
+        }
+
+        private void SelectAndDeselect(IWebElement element, Step step)
+        {
+            SelectElement select = new SelectElement(element);
+
+            switch (step.Parameters[0])
+            {
+                case "Select By Index":
+                    var selectIndex = Convert.ToInt32(step.Parameters[1]);
+                    select.SelectByIndex(selectIndex);
+                    break;
+                case "Select By Text":
+                    select.SelectByText(step.Parameters[1]);
+                    break;
+                case "Select By Value":
+                    select.SelectByValue(step.Parameters[1]);
+                    break;
+                case "Deselect All":
+                    select.DeselectAll();
+                    break;
+                case "Deselect By Index":
+                    var deselectIndex = Convert.ToInt32(step.Parameters[1]);
+                    select.DeselectByIndex(deselectIndex);
+                    break;
+                case "Deselect By Text":
+                    select.DeselectByText(step.Parameters[1]);
+                    break;
+                case "Deselect By Value":
+                    select.DeselectByValue(step.Parameters[1]);
+                    break;
+            }
+
         }
 
         private void Wait(Step step)

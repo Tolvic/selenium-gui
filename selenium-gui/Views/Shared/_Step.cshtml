@@ -6,6 +6,7 @@
                 <option>Element Operations</option>
                 <option>Find Element</option>
                 <option selected>Navigate</option>
+                <option>Select And Deselect</option>
                 <option>Wait</option>
                 <option>Wait For</option>
             </select>
@@ -54,6 +55,19 @@
                 <input type="url" class="form-control step-input secondary-input col-9 ml-sm-2" name="url" placeholder="URL">
             </div>
 
+            <div id="select-and-deselect-inputs" class="row step-inputs" style="display: none;">
+                <select class="form-control step-input primary-input col">
+                    <option data-secondary-input="true">Select By Index</option>
+                    <option data-secondary-input="true" selected>Select By Text</option>
+                    <option data-secondary-input="true">Select By Value</option>
+                    <option>Deselect All</option>
+                    <option data-secondary-input="true">Deselect By Index</option>
+                    <option data-secondary-input="true">Deselect By Text</option>
+                    <option data-secondary-input="true">Deselect By Value</option>
+                </select>
+                <input type="text" class="form-control step-input secondary-input col-9 ml-sm-2" name="select" placeholder="Selector">
+            </div>
+
             <div id="wait-inputs" class="row step-inputs" style="display: none;">
                 <input type="number" class="form-control step-input col-9" name="wait" placeholder="number">
                 <select class="form-control step-input col ml-sm-2">
@@ -86,9 +100,9 @@
                         </select>
                         <input type="text" class="form-control step-input col" name="selector" placeholder="Selector">
                     </div>
-                    
+
                 </div>
-                
+
             </div>
 
         </div>

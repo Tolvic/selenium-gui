@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Newtonsoft.Json;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -26,19 +27,37 @@ namespace selenium_gui.Models
             {
                 switch (step.Type)
                 {
+                    case "Browser Operations":
+                        BrowserOperations(step);
+                        break;
+                    case "Element Operations":
+                        ElementOperations(element, step);
+                        break;
+                    case "Find Element":
+                        element = FindElement(step);
+                        break;
                     case "Navigate":
                         Navigate(step);
                         break;
 
-                    case "Find Element":
-                        element = FindElement(step);
-                        break;
 
-                    case "Element Operations":
-                        ElementOperations(element, step);
-                        break;
+
+                    
                 }
 
+            }
+        }
+
+        public void BrowserOperations(Step step)
+        {
+            switch (step.Parameters[0])
+            {
+                case "Maximize":
+                    Driver.Manage().Window.Maximize();
+                    break;
+                case "Quit":
+                    Driver.Quit();
+                    break;
             }
         }
 

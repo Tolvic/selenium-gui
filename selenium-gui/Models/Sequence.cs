@@ -26,8 +26,8 @@ namespace selenium_gui.Models
             {
                 switch (step.Type)
                 {
-                    case "Go To URL":
-                        Driver.Navigate().GoToUrl(step.Parameters[0]);
+                    case "Navigate":
+                        Navigate(step);
                         break;
 
                     case "Find Element":
@@ -39,6 +39,25 @@ namespace selenium_gui.Models
                         break;
                 }
 
+            }
+        }
+
+        private void Navigate(Step step)
+        {
+            switch (step.Parameters[0])
+            {
+                case "Back":
+                    Driver.Navigate().Back();
+                    break;
+                case "Forward":
+                    Driver.Navigate().Forward();
+                    break;
+                case "Go To URL":
+                    Driver.Navigate().GoToUrl(step.Parameters[1]);
+                    break;
+                case "Refresh":
+                    Driver.Navigate().Refresh();
+                    break;
             }
         }
 

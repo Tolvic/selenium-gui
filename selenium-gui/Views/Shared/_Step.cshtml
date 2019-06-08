@@ -7,6 +7,7 @@
                 <option>Find Element</option>
                 <option selected>Navigate</option>
                 <option>Wait</option>
+                <option>Wait For</option>
             </select>
         </div>
 
@@ -59,6 +60,34 @@
                     <option selected>Seconds</option>
                     <option>Miliseconds</option>
                 </select>
+            </div>
+
+            <div id="wait-for-inputs" class="row step-inputs" style="display: none;">
+                <select class="form-control step-input primary-input secondary-options col">
+                    <option>Alert To Be Present</option>
+                    <option data-secondary-input="true">Element Text To Be</option>
+                    <option>Element To Be Clickable</option>
+                    <option>Element To Be Selected</option>
+                    <option selected>Element To Be Visible</option>
+                    <option data-secondary-input="true" data-tertiary-input="true">Element Text To Be Present</option>
+                    <option data-secondary-input="true" data-tertiary-input="true">Element To Exist</option>
+                </select>
+                <div class="step-input secondary-input col-9 ml-sm-2">
+                    <div class="row">
+                        <select class="form-control step-input tertiary-input col-3 mr-sm-2">
+                            <option>By Class Name</option>
+                            <option>By CSS Selector</option>
+                            <option selected>By ID</option>
+                            <option>By Link Text</option>
+                            <option>By Name</option>
+                            <option>By Partial Link Text</option>
+                            <option>By Tag Name</option>
+                            <option>By XPath</option>
+                        </select>
+                        <input type="text" class="form-control step-input col" name="selector" placeholder="Selector">
+                    </div>
+                    
+                </div>
                 
             </div>
 

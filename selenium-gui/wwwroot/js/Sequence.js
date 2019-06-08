@@ -5,6 +5,7 @@
         setUpAddStepEventBinding();
         setUpDeleteStepEventBinding();
         setUpStepTypeSelectionBinding();
+        setUpStepInputBinding();
     }
 
    // private functions
@@ -34,6 +35,25 @@
     function showSelectedStepInputs(stepType) {
         var stepInputsId = $(stepType).val().toLowerCase().replace(/ /g, "-");
         $(stepType).closest("li").find("#" + stepInputsId + "-inputs").show();
+    }
+
+    function setUpStepInputBinding() {
+        $(".primary-input").change(function() {
+            toggleSecondaryInputs($(this));
+        });
+    }
+
+    function toggleSecondaryInputs(primaryInputs) {
+        var secondaryInputs = $(primaryInputs).closest("div.step-inputs").find(".secondary-input");
+        secondaryInputs.hide();
+        showSecondaryInputs(primaryInputs, secondaryInputs);
+    }
+
+    function showSecondaryInputs(primaryInputs, secondaryInputs) {
+        var displaySecondaryInputFlag = $("option:selected", primaryInputs).data("secondary-input");
+        if (displaySecondaryInputFlag) {
+            secondaryInputs.show();
+        }
     }
 
     function setUpAddStepEventBinding() {
@@ -107,6 +127,7 @@
         $("#sequence-list").append(stepTemplate);
         setUpDeleteStepEventBinding();
         setUpStepTypeSelectionBinding();
+        setUpStepInputBinding();
     }
 
     // Expose functions

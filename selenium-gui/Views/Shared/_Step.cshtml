@@ -13,7 +13,7 @@
             </div>
 
             <div id="find-element-inputs" class="row step-inputs" style="display: none;">
-                <select class="form-control step-input col-3 mr-sm-2">
+                <select class="form-control step-input primary-input col">
                     <option>By Class Name</option>
                     <option>By CSS Selector</option>
                     <option selected>By ID</option>
@@ -23,15 +23,17 @@
                     <option>By Tag Name</option>
                     <option>By XPath</option>
                 </select>
-                <input type="text" class="form-control step-input col" name="url" placeholder="Selector">
+                <input type="text" class="form-control step-input secondary-input col-9 ml-sm-2" name="selector" placeholder="Selector">
             </div>
 
             <div id="element-operations-inputs" class="row step-inputs" style="display: none;">
-                <select class="form-control step-input">
+                <select class="form-control step-input primary-input col">">
                     <option selected>Click</option>
+                    <option>Clear</option>
+                    <option data-secondary-input="true">Send Keys</option>
                     <option>Submit</option>
                 </select>
-                
+                <input type="text" class="form-control step-input secondary-input col-9 ml-sm-2" name="keys" placeholder="Text" style="display: none;">
             </div>
 
         </div>

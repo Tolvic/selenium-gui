@@ -4,6 +4,7 @@
             <select class="form-control step-type">
                 <option>Alert Operations</option>
                 <option>Browser Operations</option>
+                <option>Cookie Operations</option>
                 <option>Element Operations</option>
                 <option>Find Element</option>
                 <option selected>Navigate</option>
@@ -28,6 +29,20 @@
                     <option selected>Maximize</option>
                     <option>Quit</option>
                 </select>
+            </div>
+
+            <div id="cookie-operations-inputs" class="row step-inputs" style="display: none;">
+                <select class="form-control step-input primary-input secondary-options col">
+                    <option data-secondary-input="true" data-tertiary-input="true">Add Cookie</option>
+                    <option Selected>Delete All Cookies</option>
+                    <option data-secondary-input="true">Delete Cookie By Name</option>
+                </select>
+                <div class="step-input secondary-input col-9 ml-sm-2" style="display: none">
+                    <div class="row">
+                        <input type="text" class="form-control step-input col" name="cookie-name" placeholder="Name">
+                        <input type="text" class="form-control step-input tertiary-input col ml-sm-2" name="selector" placeholder="Value" style="display: none;">
+                    </div>
+                </div>
             </div>
 
             <div id="element-operations-inputs" class="row step-inputs" style="display: none;">
@@ -111,9 +126,7 @@
                         </select>
                         <input type="text" class="form-control step-input col" name="selector" placeholder="Selector">
                     </div>
-
                 </div>
-
             </div>
 
         </div>

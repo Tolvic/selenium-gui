@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Threading;
+using Microsoft.EntityFrameworkCore;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium.Interactions;
@@ -31,6 +32,9 @@ namespace selenium_gui.Models
                         break;
                     case "Browser Operations":
                         BrowserOperations(step);
+                        break;
+                    case "Cookie Operations":
+                        CookieOperations(step);
                         break;
                     case "Element Operations":
                         ElementOperations(element, step);
@@ -83,6 +87,54 @@ namespace selenium_gui.Models
             }
         }
 
+        public void CookieOperations(Step step)
+        {
+            switch (step.Parameters[0])
+            {
+                case "Add Cookie":
+                    Cookie cookie = new Cookie(step.Parameters[1], step.Parameters[2]);
+                    Driver.Manage().Cookies.AddCookie(cookie);
+                    break;
+                case "Delete All Cookies":
+                    Driver.Manage().Cookies.DeleteAllCookies();
+                    break;
+                case "Delete Cookie By Name":
+                    Driver.Manage().Cookies.DeleteCookieNamed(step.Parameters[1]);
+                    break;
+            } 
+        }
+
+         private void ElementOperations(IWebElement element, Step step)
+        {
+            switch (step.Parameters[0])
+            {
+                case "Click":
+                    element?.Click();
+                    break;
+
+                case "Clear":
+                    element?.Clear();
+                    break;
+                case "Drag and Drop":
+                    Actions move = new Actions(Driver);
+                    var x = Convert.ToInt32(step.Parameters[1]);
+                    var y = Convert.ToInt32(step.Parameters[2]);
+                    move.DragAndDropToOffset(element, x, y).Perform();
+                    break;
+                case "Send Keys":
+                    element?.SendKeys(step.Parameters[1]);
+                    break;
+
+                case "submit":
+                    element?.Submit();
+                    break;
+                case "Scroll To Element":
+                    Actions actions = new Actions(Driver);
+                    actions.MoveToElement(element);
+                    break;
+            }
+        }
+
         private IWebElement FindElement(Step step)
         {
             IWebElement element = null;
@@ -123,32 +175,6 @@ namespace selenium_gui.Models
             }
 
             return element;
-        }
-
-        private void ElementOperations(IWebElement element, Step step)
-        {
-            switch (step.Parameters[0])
-            {
-                case "Click":
-                    element?.Click();
-                    break;
-
-               case "Clear":
-                    element?.Clear();
-                    break;
-
-                case "Send Keys":
-                    element?.SendKeys(step.Parameters[1]);
-                    break;
-
-                case "submit":
-                    element?.Submit();
-                    break;
-                case "Scroll To Element":
-                    Actions actions = new Actions(Driver);
-                    actions.MoveToElement(element);
-                    break;
-            }
         }
 
         private void Navigate(Step step)

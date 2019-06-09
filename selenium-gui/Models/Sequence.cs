@@ -5,6 +5,7 @@ using System.IO;
 using System.Threading;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using OpenQA.Selenium.Interactions;
 using selenium_gui.Interfaces;
 
 namespace selenium_gui.Models
@@ -50,7 +51,6 @@ namespace selenium_gui.Models
                         WaitFor(element, step);
                         break;
                 }
-
             }
         }
 
@@ -143,6 +143,10 @@ namespace selenium_gui.Models
 
                 case "submit":
                     element?.Submit();
+                    break;
+                case "Scroll To Element":
+                    Actions actions = new Actions(Driver);
+                    actions.MoveToElement(element);
                     break;
             }
         }

@@ -15,15 +15,20 @@
         $("#export-sequence").click(function() {
             addSequenceToExportModal();
         });
+        $("#export-copy-to-clipboard").click(function() {
+            copyExportSequenceToClipboard();
+        });
     }
 
     function addSequenceToExportModal() {
-        console.log("export");
         var sequenceData = getSequenceData();
         $("#export-text").val(sequenceData);
     }
 
-
+    function copyExportSequenceToClipboard() {
+        $("#export-text").select();
+        document.execCommand("copy");
+    };
 
     function setUpRunSequenceEventBinding() {
         $("#run-sequence").click(function () {

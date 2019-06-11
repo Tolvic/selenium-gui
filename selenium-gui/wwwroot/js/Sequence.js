@@ -7,9 +7,24 @@
         setUpStepTypeSelectionBinding();
         setUpStepInputBinding();
         setUpSecondaryOptionsBindings();
+        setUpExportBindings();
     }
 
    // private functions
+    function setUpExportBindings() {
+        $("#export-sequence").click(function() {
+            addSequenceToExportModal();
+        });
+    }
+
+    function addSequenceToExportModal() {
+        console.log("export");
+        var sequenceData = getSequenceData();
+        $("#export-text").val(sequenceData);
+    }
+
+
+
     function setUpRunSequenceEventBinding() {
         $("#run-sequence").click(function () {
             var sequenceData = getSequenceData();

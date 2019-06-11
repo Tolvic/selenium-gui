@@ -8,9 +8,23 @@
         setUpStepInputBinding();
         setUpSecondaryOptionsBindings();
         setUpExportBindings();
+        setUpImportBindings();
     }
 
    // private functions
+    function setUpImportBindings() {
+        $("#import-sequence-json").click(function() {
+            importSequence();
+        });
+    }
+
+    function importSequence() {
+        var sequence = $("#import-text").val();
+        var steps = JSON.parse(sequence);
+        console.log(steps);
+       
+    }
+
     function setUpExportBindings() {
         $("#export-sequence").click(function() {
             addSequenceToExportModal();
@@ -22,7 +36,7 @@
 
     function addSequenceToExportModal() {
         var sequenceData = getSequenceData();
-        $("#export-text").val(sequenceData);
+        $("#export-text").val(JSON.stringify(sequenceData));
     }
 
     function copyExportSequenceToClipboard() {
@@ -33,8 +47,18 @@
     function setUpRunSequenceEventBinding() {
         $("#run-sequence").click(function () {
             var sequenceData = getSequenceData();
-            sendRunSequence(sequenceData);
+            var jsonSequenceData = stringifySequenceData(sequenceData);
+            sendRunSequence(jsonSequenceData);
         });
+    }
+
+    function stringifySequenceData(sequence) {
+        var sequenceData = [];
+        sequence.forEach(function (step) {
+            sequenceData.push(JSON.stringify(step));
+        });
+
+        return JSON.stringify(sequenceData);
     }
 
     function setUpStepTypeSelectionBinding() {
@@ -114,9 +138,8 @@
             var type = getStepType($(this));
             var options = getStepOptions($(this));
             var stepObject = stepObjectInit(type, options);
-            sequenceData.push(JSON.stringify(stepObject));
+            sequenceData.push(stepObject);
         });
-
         return sequenceData;
     }
 
@@ -142,7 +165,7 @@
             type: "GET",
             url: "/Sequence/Run",
             data: {
-                sequenceData: JSON.stringify(sequenceData)
+                sequenceData: sequenceData
             },
             contentType: 'application/json',
             dataType: "json",

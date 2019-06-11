@@ -15,7 +15,7 @@
     <div class="card-header">
         <div class="row">
             <div class="col">
-                <button type="button" id="import-sequence" class="btn btn-outline-primary">Import</button>
+                <button type="button" id="import-sequence" class="btn btn-outline-primary" data-toggle="modal" data-target="#import-modal">Import</button>
             </div>
             <div class="col">
                 <h2>Sequence</h2>
@@ -46,4 +46,25 @@
             </div>
         </div>
     </form>
+</div>
+
+
+<div id="import-modal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
 </div>

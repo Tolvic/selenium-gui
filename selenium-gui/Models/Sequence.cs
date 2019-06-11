@@ -245,22 +245,22 @@ namespace selenium_gui.Models
             switch (step.Parameters[0])
             {
                 case "Alert To Be Present":
-                    wait.Until(ExpectedConditions.AlertIsPresent());
+                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.AlertIsPresent());
                     break;
                 case "Element Text To Be":
-                    wait.Until(ExpectedConditions.TextToBePresentInElement(element, step.Parameters[1]));
+                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.TextToBePresentInElement(element, step.Parameters[1]));
                     break;
                 case "Element To Be Clickable":
-                    wait.Until(ExpectedConditions.ElementToBeClickable(element));
+                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(element));
                     break;
                 case "Element To Be Selected":
-                    wait.Until(ExpectedConditions.ElementToBeSelected(element));
+                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeSelected(element));
                     break;
                 case "Element To Be Visible":
                     ElementToBeVisible(wait, step);
                     break;
                 case "Text To Be Present":
-                    wait.Until(ExpectedConditions.TextToBePresentInElement(element, step.Parameters[2]));
+                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.TextToBePresentInElement(element, step.Parameters[2]));
                     break;
                 case "Element To Exist":
                     ElementToExist(wait, step);
@@ -273,35 +273,43 @@ namespace selenium_gui.Models
             switch (step.Parameters[1])
             {
                 case "By Class Name":
-                    wait.Until(ExpectedConditions.ElementIsVisible(By.ClassName(step.Parameters[2])));
+                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions
+                        .ElementIsVisible(By.ClassName(step.Parameters[2])));
                     break;
 
                 case "By CSS Selector":
-                    wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector(step.Parameters[2])));
+                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions
+                        .ElementIsVisible(By.CssSelector(step.Parameters[2])));
                     break;
 
                 case "By ID":
-                    wait.Until(ExpectedConditions.ElementIsVisible(By.Id(step.Parameters[2])));
+                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions
+                        .ElementIsVisible(By.Id(step.Parameters[2])));
                     break;
 
                 case "By Link text":
-                    wait.Until(ExpectedConditions.ElementIsVisible(By.LinkText(step.Parameters[2])));
+                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions
+                        .ElementIsVisible(By.LinkText(step.Parameters[2])));
                     break;
 
                 case "By Name":
-                    wait.Until(ExpectedConditions.ElementIsVisible(By.Name(step.Parameters[2])));
+                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions
+                        .ElementIsVisible(By.Name(step.Parameters[2])));
                     break;
 
                 case "By Partial Link":
-                    wait.Until(ExpectedConditions.ElementIsVisible(By.PartialLinkText(step.Parameters[2])));
+                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions
+                        .ElementIsVisible(By.PartialLinkText(step.Parameters[2])));
                     break;
 
                 case "By Tag Name":
-                    wait.Until(ExpectedConditions.ElementIsVisible(By.TagName(step.Parameters[2])));
+                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions
+                        .ElementIsVisible(By.TagName(step.Parameters[2])));
                     break;
 
                 case "By XPath":
-                    wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(step.Parameters[2])));
+                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions
+                        .ElementIsVisible(By.XPath(step.Parameters[2])));
                     break;
             } 
         }
@@ -311,35 +319,35 @@ namespace selenium_gui.Models
             switch (step.Parameters[1])
             {
                 case "By Class Name":
-                    wait.Until(ExpectedConditions.ElementExists(By.ClassName(step.Parameters[2])));
+                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.ClassName(step.Parameters[2])));
                     break;
 
                 case "By CSS Selector":
-                    wait.Until(ExpectedConditions.ElementExists(By.CssSelector(step.Parameters[2])));
+                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.CssSelector(step.Parameters[2])));
                     break;
 
                 case "By ID":
-                    wait.Until(ExpectedConditions.ElementExists(By.Id(step.Parameters[2])));
+                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.Id(step.Parameters[2])));
                     break;
 
                 case "By Link text":
-                    wait.Until(ExpectedConditions.ElementExists(By.LinkText(step.Parameters[2])));
+                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.LinkText(step.Parameters[2])));
                     break;
 
                 case "By Name":
-                    wait.Until(ExpectedConditions.ElementExists(By.Name(step.Parameters[2])));
+                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.Name(step.Parameters[2])));
                     break;
 
                 case "By Partial Link":
-                    wait.Until(ExpectedConditions.ElementExists(By.PartialLinkText(step.Parameters[2])));
+                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.PartialLinkText(step.Parameters[2])));
                     break;
 
                 case "By Tag Name":
-                    wait.Until(ExpectedConditions.ElementExists(By.TagName(step.Parameters[2])));
+                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.TagName(step.Parameters[2])));
                     break;
 
                 case "By XPath":
-                    wait.Until(ExpectedConditions.ElementExists(By.XPath(step.Parameters[2])));
+                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.XPath(step.Parameters[2])));
                     break;
             }
         }

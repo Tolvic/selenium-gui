@@ -58,7 +58,6 @@
     }
 
     function setUpSecondaryOptionsBindings() {
-        console.log("setupSecondaryOptionBidings")
         $(".secondary-options").change(function() {
             toggleTertiaryInputs($(this));
         });
@@ -66,7 +65,6 @@
 
     function toggleTertiaryInputs(secondaryInputs) {
         var tertiaryInputs = $(secondaryInputs).closest("div.step-inputs").find(".tertiary-input");
-        console.log(tertiaryInputs);
         tertiaryInputs.hide();
         showTertiaryInputs(secondaryInputs, tertiaryInputs);
     }
@@ -150,6 +148,7 @@
         setUpDeleteStepEventBinding();
         setUpStepTypeSelectionBinding();
         setUpStepInputBinding();
+        setUpSecondaryOptionsBindings();
     }
 
     // Expose functions

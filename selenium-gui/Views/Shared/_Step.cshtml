@@ -16,48 +16,48 @@
 
         <div class="col">
             <div id="alert-operations-inputs" class="row step-inputs" style="display: none;">
-                <select class="form-control step-input primary-input col">
+                <select class="form-control step-input primary-input step-parameter-0 col">
                     <option>Accept</option>
                     <option>Dismiss</option>
                     <option data-secondary-input="true">Send Keys</option>
                 </select>
-                <input type="text" class="form-control step-input secondary-input col-9 ml-sm-2" name="select" placeholder="Text" style="display: none;">
+                <input type="text" class="form-control step-input secondary-input step-parameter-1 col-9 ml-sm-2" name="select" placeholder="Text" style="display: none;">
             </div>
 
             <div id="browser-operations-inputs" class="row step-inputs" style="display: none;">
-                <select class="form-control step-input primary-input col">
+                <select class="form-control step-input primary-input step-parameter-0 col">
                     <option selected>Maximize</option>
                     <option>Quit</option>
                 </select>
             </div>
 
             <div id="cookie-operations-inputs" class="row step-inputs" style="display: none;">
-                <select class="form-control step-input primary-input secondary-options col">
+                <select class="form-control step-input primary-input secondary-options step-parameter-0 col">
                     <option data-secondary-input="true" data-tertiary-input="true">Add Cookie</option>
                     <option Selected>Delete All Cookies</option>
                     <option data-secondary-input="true">Delete Cookie By Name</option>
                 </select>
                 <div class="step-input secondary-input col-9 ml-sm-2" style="display: none">
                     <div class="row">
-                        <input type="text" class="form-control step-input col" name="cookie-name" placeholder="Name">
-                        <input type="text" class="form-control step-input tertiary-input col ml-sm-2" name="selector" placeholder="Value" style="display: none;">
+                        <input type="text" class="form-control step-input step-parameter-1 col" name="cookie-name" placeholder="Name">
+                        <input type="text" class="form-control step-input step-parameter-2 tertiary-input col ml-sm-2" name="selector" placeholder="Value" style="display: none;">
                     </div>
                 </div>
             </div>
 
             <div id="element-operations-inputs" class="row step-inputs" style="display: none;">
-                <select class="form-control step-input primary-input col">
+                <select class="form-control step-input primary-input step-parameter-0 col">
                     <option selected>Click</option>
                     <option>Clear</option>
                     <option data-secondary-input="true">Send Keys</option>
                     <option>Submit</option>
                     <option>Scroll To Element</option>
                 </select>
-                <input type="text" class="form-control step-input secondary-input col-9 ml-sm-2" name="keys" placeholder="Text" style="display: none;">
+                <input type="text" class="form-control step-input secondary-input step-parameter-0 col-9 ml-sm-2" name="keys" placeholder="Text" style="display: none;">
             </div>
 
             <div id="find-element-inputs" class="row step-inputs" style="display: none;">
-                <select class="form-control step-input primary-input col">
+                <select class="form-control step-input primary-input step-parameter-0 col">
                     <option data-secondary-input="true">By Class Name</option>
                     <option data-secondary-input="true">By CSS Selector</option>
                     <option data-secondary-input="true" selected>By ID</option>
@@ -67,22 +67,22 @@
                     <option data-secondary-input="true">By Tag Name</option>
                     <option data-secondary-input="true">By XPath</option>
                 </select>
-                <input type="text" class="form-control step-input secondary-input col-9 ml-sm-2" name="selector" placeholder="Selector">
+                <input type="text" class="form-control step-input step-parameter-1 secondary-input col-9 ml-sm-2" name="selector" placeholder="Selector">
             </div>
 
             <div id="navigate-inputs" class="row step-inputs">
-                <select class="form-control step-input primary-input col">
+                <select class="form-control step-input step-parameter-0 primary-input col">
                     <option>Back</option>
                     <option>Forward</option>
                     <option data-secondary-input="true" selected>Go To URL</option>
                     <option>Refresh</option>
 
                 </select>
-                <input type="url" class="form-control step-input secondary-input col-9 ml-sm-2" name="url" placeholder="URL">
+                <input type="url" class="form-control step-input step-parameter-1 secondary-input col-9 ml-sm-2" name="url" placeholder="URL">
             </div>
 
             <div id="select-and-deselect-inputs" class="row step-inputs" style="display: none;">
-                <select class="form-control step-input primary-input col">
+                <select class="form-control step-input step-parameter-0 primary-input col">
                     <option data-secondary-input="true">Select By Index</option>
                     <option data-secondary-input="true" selected>Select By Text</option>
                     <option data-secondary-input="true">Select By Value</option>
@@ -91,19 +91,19 @@
                     <option data-secondary-input="true">Deselect By Text</option>
                     <option data-secondary-input="true">Deselect By Value</option>
                 </select>
-                <input type="text" class="form-control step-input secondary-input col-9 ml-sm-2" name="select" placeholder="Selector">
+                <input type="text" class="form-control step-input step-parameter-1 secondary-input col-9 ml-sm-2" name="select" placeholder="Selector">
             </div>
 
             <div id="wait-inputs" class="row step-inputs" style="display: none;">
-                <input type="number" class="form-control step-input col-9" name="wait" placeholder="number">
-                <select class="form-control step-input col ml-sm-2">
+                <input type="number" class="form-control step-input step-parameter-0 col-9" name="wait" placeholder="number">
+                <select class="form-control step-input step-parameter-1 col ml-sm-2">
                     <option selected>Seconds</option>
                     <option>Miliseconds</option>
                 </select>
             </div>
 
             <div id="wait-for-inputs" class="row step-inputs" style="display: none;">
-                <select class="form-control step-input primary-input secondary-options col">
+                <select class="form-control step-input primary-input step-parameter-0 secondary-options col">
                     <option>Alert To Be Present</option>
                     <option data-secondary-input="true">Element Text To Be</option>
                     <option>Element To Be Clickable</option>
@@ -114,7 +114,7 @@
                 </select>
                 <div class="step-input secondary-input col-9 ml-sm-2">
                     <div class="row">
-                        <select class="form-control step-input tertiary-input col-3 mr-sm-2" style="display:none;">
+                        <select class="form-control step-input tertiary-input step-parameter-1 col-3 mr-sm-2" style="display:none;">
                             <option>By Class Name</option>
                             <option>By CSS Selector</option>
                             <option selected>By ID</option>
@@ -124,7 +124,7 @@
                             <option>By Tag Name</option>
                             <option>By XPath</option>
                         </select>
-                        <input type="text" class="form-control step-input col" name="selector" placeholder="Selector">
+                        <input type="text" class="form-control step-parameter-2 step-input col" name="selector" placeholder="Selector">
                     </div>
                 </div>
             </div>

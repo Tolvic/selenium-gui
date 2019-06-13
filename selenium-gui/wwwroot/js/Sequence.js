@@ -19,19 +19,44 @@
     }
 
     function importSequence() {
-        var importText = $("#import-text")
+        var importText = $("#import-text");
 
         var sequence = importText.val();
-        var steps = JSON.parse(sequence);
-        console.log(steps);
+        var importSteps = JSON.parse(sequence);
+        console.log(importSteps);
         importText.val("");
         clearAllSteps();
+
+        var i = 0;
+        importSteps.forEach(function() {
+            getStepTemplateWithPromise().then(function () {
+                var importStep = importSteps[i];
+                var steps = $(".step-li");
+                var step = steps.last();
+
+                step.find($(".step-type")).val(importStep.Type).change();
+                var x = 0;
+                importStep.Parameters.forEach(function(paramater) {
+                    step.find($(".step-parameter-" + x)).val(paramater);
+                    x++;
+                });
+                i++;
+            });
+            
+        });
+        console.log($(".step-li"));
         $('#import-modal').modal('toggle');
+    }
 
-        //steps.forEach(function (step) {
-
-        //});
-
+    function getStepTemplateWithPromise() {
+        return $.ajax({
+            type: "GET",
+            url: "/Sequence/GetStepTemplate",
+            contentType: 'application/json',
+            success: function (response) {
+                addStepToSequence(response);
+            }
+        });
     }
 
     function clearAllSteps() {

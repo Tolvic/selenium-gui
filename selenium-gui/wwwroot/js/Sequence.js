@@ -19,33 +19,39 @@
     }
 
     function importSequence() {
-        var importText = $("#import-text");
-
-        var sequence = importText.val();
-        var importSteps = JSON.parse(sequence);
-        console.log(importSteps);
-        importText.val("");
+        var sequence = getImportSequence();
         clearAllSteps();
+        populateSequence(sequence);
+        $('#import-modal').modal('toggle');
+    }
 
+    function getImportSequence() {
+        var importText = $("#import-text");
+        var sequence = importText.val();
+        importText.val("");
+
+        return JSON.parse(sequence);
+    }
+
+    function populateSequence(sequence) {
         var i = 0;
-        importSteps.forEach(function() {
+        sequence.forEach(function () {
             getStepTemplateWithPromise().then(function () {
-                var importStep = importSteps[i];
+                var importStep = sequence[i];
+                var stepInputsId = importStep.Type.toLowerCase().replace(/ /g, "-");
                 var steps = $(".step-li");
                 var step = steps.last();
+                var x = 0;
 
                 step.find($(".step-type")).val(importStep.Type).change();
-                var x = 0;
-                importStep.Parameters.forEach(function(paramater) {
-                    step.find($(".step-parameter-" + x)).val(paramater);
+                importStep.Parameters.forEach(function (paramater) {
+                    step.find("#" + stepInputsId + "-inputs").find($(".step-parameter-" + x)).val(paramater);
                     x++;
                 });
                 i++;
             });
-            
+
         });
-        console.log($(".step-li"));
-        $('#import-modal').modal('toggle');
     }
 
     function getStepTemplateWithPromise() {

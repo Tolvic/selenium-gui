@@ -19,10 +19,18 @@
     }
 
     function importSequence() {
-        var sequence = $("#import-text").val();
+        var importText = $("#import-text")
+
+        var sequence = importText.val();
         var steps = JSON.parse(sequence);
         console.log(steps);
+        importText.val("");
         clearAllSteps();
+        $('#import-modal').modal('toggle');
+
+        //steps.forEach(function (step) {
+
+        //});
 
     }
 

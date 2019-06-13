@@ -22,8 +22,14 @@
         var sequence = $("#import-text").val();
         var steps = JSON.parse(sequence);
         console.log(steps);
-       
+        clearAllSteps();
+
     }
+
+    function clearAllSteps() {
+        $(".step-li").remove();
+    }
+
 
     function setUpExportBindings() {
         $("#export-sequence").click(function() {
@@ -36,7 +42,7 @@
 
     function addSequenceToExportModal() {
         var sequenceData = getSequenceData();
-        $("#export-text").val(JSON.stringify(sequenceData));
+        $("#export-text").val(JSON.stringify(sequenceData, null, '\t'));
     }
 
     function copyExportSequenceToClipboard() {

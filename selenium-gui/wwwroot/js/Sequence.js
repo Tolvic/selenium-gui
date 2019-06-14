@@ -13,6 +13,16 @@
     }
 
    // private functions
+    function setUpImportBindings() {
+        $("#import-sequence-json").click(function () {
+            importSequence();
+        });
+        $("#import-sequence-json-append").click(function () {
+            appendSequence();
+        });
+
+    }
+
     function setUpToggleImportButtonBindings() {
         $("#import-text").on('change keyup paste', function () {
             var input = $("#import-text").val();
@@ -35,15 +45,15 @@
         return true;
     }
 
-    function setUpImportBindings() {
-        $("#import-sequence-json").click(function() {
-            importSequence();
-        });
-    }
-
     function importSequence() {
         var sequence = getImportSequence();
         clearAllSteps();
+        populateSequence(sequence);
+        $('#import-modal').modal('toggle');
+    }
+
+    function appendSequence() {
+        var sequence = getImportSequence();
         populateSequence(sequence);
         $('#import-modal').modal('toggle');
     }

@@ -3,5 +3,44 @@
     ViewData["Title"] = "Demo";
 }
 
-<h1>Demo</h1>
+@section Scripts{
+    <script src="~/js/Demo.js"></script>
+}
+
+<div class="text-center">
+    <h1 class="display-4">Demo</h1>
+    <p>Each section below demos how Selenuim GUI can be used in different Scenarios.</p>
+    <p>just take the Sequence JSON script and import into your sequence.</p>
+    <hr />
+</div>
+
+<section id="find-and-click">
+    <h2>Find and Click</h2>
+    <p>Each of the elements below will change colour when clicked. However each element required you to use a different Find Element function to locate it.</p>
+    <div class="row example">
+        <div class="col-3">
+            <button id="find-element-by-id-button" class="btn btn-secondary">Find me by ID</button>
+        </div>
+        <div class="col">
+            <div class="text-center">
+                <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    See Sequence JSON
+                </button>
+            </div>
+            <div class="collapse" id="collapseExample">
+                <div class="card card-body">
+                    <code find-element-by-id-button-code>
+                        [{"Type": "Navigate","Parameters": ["Go To URL","https://localhost:44321/Home/Demo"]},{"Type": "Find Element","Parameters": ["By ID","find-element-by-id-button"]},{"Type": "Element Operations","Parameters": ["Click",""]}]
+                    </code>
+                </div>
+            </div>
+        </div>
+        <div class="col-3 text-right">
+            <button class="btn btn-primary copy-json">Copy JSON to clipboard</button>
+        </div>
+    </div>
+
+</section>
+
+<textarea id="clipboard" style="display: none;"></textarea>
 

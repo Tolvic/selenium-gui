@@ -26,5 +26,18 @@ namespace selenium_gui.tests.Controllers
             // Assert
             Assert.AreEqual("Index", result.ViewName);
         }
+
+        [Test]
+        public void DemoShouldReturnDemoView()
+        {
+            // Arrange
+            var homeController = new HomeController();
+
+            // Act
+            var result = homeController.Demo() as ViewResult;
+
+            // Assert
+            Assert.AreEqual("Demo", result.ViewName);
+        }
     }
 }

@@ -18,8 +18,10 @@
             var input = $("#import-text").val();
             if (isJsonString(input)) {
                 $("#import-sequence-json").prop('disabled', false);
+                $("#import-sequence-json-append").prop('disabled', false);
             } else {
                 $("#import-sequence-json").prop('disabled', true);
+                $("#import-sequence-json-append").prop('disabled', true);
             }
         });
     }

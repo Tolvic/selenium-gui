@@ -18,6 +18,11 @@ namespace selenium_gui.Controllers
             return View("Index");
         }
 
+        public IActionResult Demo()
+        {
+            return View("Demo");
+        }
+
         [ExcludeFromCodeCoverage]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

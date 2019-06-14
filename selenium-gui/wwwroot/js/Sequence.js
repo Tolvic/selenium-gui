@@ -9,9 +9,30 @@
         setUpSecondaryOptionsBindings();
         setUpExportBindings();
         setUpImportBindings();
+        setUpToggleImportButtonBindings();
     }
 
    // private functions
+    function setUpToggleImportButtonBindings() {
+        $("#import-text").on('change keyup paste', function () {
+            var input = $("#import-text").val();
+            if (isJsonString(input)) {
+                $("#import-sequence-json").prop('disabled', false);
+            } else {
+                $("#import-sequence-json").prop('disabled', true);
+            }
+        });
+    }
+
+    function isJsonString(input) {
+        try {
+            JSON.parse(input);
+        } catch (e) {
+            return false;
+        }
+        return true;
+    }
+
     function setUpImportBindings() {
         $("#import-sequence-json").click(function() {
             importSequence();
@@ -248,6 +269,3 @@
 $(document).ready(function () {
     sequence.addEventBindings();
 });
-
-
-

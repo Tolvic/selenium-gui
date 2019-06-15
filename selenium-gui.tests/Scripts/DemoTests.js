@@ -15,7 +15,7 @@ describe("Demo.js", function () {
     });
 
     afterEach(function () {
-        //$("#mock-html-container").remove();
+        $("#mock-html-container").remove();
         jasmine.Ajax.uninstall();
     });
 

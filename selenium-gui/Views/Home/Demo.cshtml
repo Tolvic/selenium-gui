@@ -32,27 +32,34 @@
                     <pre>
                         <code find-element-by-id-button-code>
 [
-    {
-        "Type": "Navigate",
-        "Parameters": [
-            "Go To URL",
-            "https://localhost:44321/Home/Demo"
-        ]
-    },
-    {
-        "Type": "Find Element",
-        "Parameters": [
-            "By ID",
-            "find-element-by-id-button"
-        ]
-    },
-    {
-        "Type": "Element Operations",
-        "Parameters": [
-            "Click",
-            "Click"
-        ]
-    }
+	{
+		"Type": "Navigate",
+		"Parameters": [
+			"Go To URL",
+			"https://localhost:44321/Home/Demo"
+		]
+	},
+	{
+		"Type": "Find Element",
+		"Parameters": [
+			"By ID",
+			"find-element-by-id-button"
+		]
+	},
+	{
+		"Type": "Wait",
+		"Parameters": [
+			"1",
+			"Seconds"
+		]
+	},
+	{
+		"Type": "Element Operations",
+		"Parameters": [
+			"Click",
+			""
+		]
+	}
 ]
                         </code>
                     </pre>

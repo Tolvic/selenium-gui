@@ -26,8 +26,6 @@ describe("Demo.js", function () {
     it("Clicking Copy JSON to clipboard sets textarea value to JSON code", function () {
         // Arrange
         spyOn(document, 'execCommand');
-
-        // Act
         var html = '<section id="find-and-click">' +
             '<div class="row example-sequence">' +
             '<div class="col-3">' +
@@ -52,6 +50,8 @@ describe("Demo.js", function () {
             '</section>' +
             '<textarea id="clipboard" style="display: none;"></textarea>';
         $("#mock-html-container").html(html);
+
+        // Act
         Demo.addEventBindings();
         $(".copy-json").click();
         var textArea = $("#clipboard").val();
@@ -64,8 +64,6 @@ describe("Demo.js", function () {
     it("Clicking Copy JSON to clipboard calls document.execCommand with copy", function () {
         // Arrange
         spyOn(document, 'execCommand').and.callThrough();
-
-        // Act
         var html = '<section id="find-and-click">' +
             '<div class="row example-sequence">' +
             '<div class="col-3">' +
@@ -90,11 +88,49 @@ describe("Demo.js", function () {
             '</section>' +
             '<textarea id="clipboard" style="display: none;"></textarea>';
         $("#mock-html-container").html(html);
+
+        // Act
         Demo.addEventBindings();
         $(".copy-json").click();
 
 
         // Assert
         expect(document.execCommand).toHaveBeenCalledWith('copy');
+    });
+
+    it("button toggles between secondary and success class", function () {
+        // Arrange
+        var html =
+            ' <button id="find-element-by-id-button" class="btn btn-toggle btn-secondary">Find me by ID</button>';
+        $("#mock-html-container").html(html);
+
+
+        // Act
+        Demo.addEventBindings();
+        var button = $("#find-element-by-id-button");
+        button.click();
+        var buttonClass = button.attr('class');
+
+
+        // Assert
+        expect(buttonClass).toBe('btn btn-toggle btn-success');
+    });
+
+    it("button toggles between success and secondary class", function () {
+        // Arrange
+        var html =
+            ' <button id="find-element-by-id-button" class="btn btn-toggle btn-success">Find me by ID</button>';
+        $("#mock-html-container").html(html);
+
+
+        // Act
+        Demo.addEventBindings();
+        var button = $("#find-element-by-id-button");
+        button.click();
+        var buttonClass = button.attr('class');
+
+
+        // Assert
+        expect(buttonClass).toBe('btn btn-toggle btn-secondary');
     });
 });

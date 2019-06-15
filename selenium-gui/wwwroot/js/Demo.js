@@ -1,13 +1,13 @@
 ﻿var Demo = (function () {
     // Public functions
-    function setUpCopyJsonEventBindings() {
-        
+    function addEventBindings() {
+        setUpCopyJsonEventBindings();
     }
 
     // private functions
     function setUpCopyJsonEventBindings() {
         $(".copy-json").click(function () {
-            var code = $(this).closest($("div.example")).find("code").text();
+            var code = $(this).closest($("div.example-sequence")).find("code").text();
             var clipboard = $("#clipboard");
             clipboard.val(code);
             clipboard.show();
@@ -18,10 +18,10 @@
     }
 
     return {
-        setUpCopyJsonEventBindings: setUpCopyJsonEventBindings
+        addEventBindings: addEventBindings
     }
 })();
 
 $(document).ready(function () {
-    Demo.setUpCopyJsonEventBindings();
+    Demo.addEventBindings();
 });

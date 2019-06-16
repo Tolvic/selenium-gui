@@ -246,11 +246,24 @@
                 sequenceData: sequenceData
             },
             contentType: 'application/json',
-            dataType: "json",
+            dataType: "text",
             success: function (response) {
-                alert("Finsihed");
+                displayResponseMessage(response);
             }
         });
+    }
+
+    function displayResponseMessage(response) {
+        $(".alert").text(response);
+        if (response !== "Sequence ran sucessfully") {
+            $(".alert").removeClass("alert-success");
+            $(".alert").addClass("alert-danger");
+        } else {
+            $(".alert").removeClass("alert-danger");
+            $(".alert").addClass("alert-success");
+        }
+
+        $(".alert").removeClass("invisible");
     }
 
     function getStepTemplate() {

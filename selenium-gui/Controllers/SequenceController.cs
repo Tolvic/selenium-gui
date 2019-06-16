@@ -26,9 +26,9 @@ namespace selenium_gui.Controllers
 
             var sequence = _sequenceModelBuilder.Build(sequenceData);
 
-            sequence.Run();
+            var sequenceResult = sequence.Run();
 
-            return Ok();
+            return Ok(sequenceResult);
         }
 
         public IActionResult GetStepTemplate()

@@ -19,43 +19,53 @@ namespace selenium_gui.Models
         [ExcludeFromCodeCoverage]
         public IWebDriver Driver { get; set; }
 
-        public void Run()
+        public string Run()
         {
             IWebElement element = null;
-
-            foreach (Step step in Steps)
+            try
             {
-                switch (step.Type)
+                foreach (Step step in Steps)
                 {
-                    case "Alert Operations":
-                        AlertOperations(step);
-                        break;
-                    case "Browser Operations":
-                        BrowserOperations(step);
-                        break;
-                    case "Cookie Operations":
-                        CookieOperations(step);
-                        break;
-                    case "Element Operations":
-                        ElementOperations(element, step);
-                        break;
-                    case "Find Element":
-                        element = FindElement(step);
-                        break;
-                    case "Navigate":
-                        Navigate(step);
-                        break;
-                    case "Select And Deselect":
-                        SelectAndDeselect(element, step);
-                        break;
-                    case "Wait":
-                        Wait(step);
-                        break;
-                    case "Wait For":
-                        WaitFor(element, step);
-                        break;
+                    switch (step.Type)
+                    {
+                        case "Alert Operations":
+                            AlertOperations(step);
+                            break;
+                        case "Browser Operations":
+                            BrowserOperations(step);
+                            break;
+                        case "Cookie Operations":
+                            CookieOperations(step);
+                            break;
+                        case "Element Operations":
+                            ElementOperations(element, step);
+                            break;
+                        case "Find Element":
+                            element = FindElement(step);
+                            break;
+                        case "Navigate":
+                            Navigate(step);
+                            break;
+                        case "Select And Deselect":
+                            SelectAndDeselect(element, step);
+                            break;
+                        case "Wait":
+                            Wait(step);
+                            break;
+                        case "Wait For":
+                            WaitFor(element, step);
+                            break;
+                    }
                 }
             }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
+
+            
+
+            return "Sequence ran sucessfully";
         }
 
         public void AlertOperations(Step step)
@@ -109,7 +119,7 @@ namespace selenium_gui.Models
             switch (step.Parameters[0])
             {
                 case "Click":
-                    element?.Click();
+                    element.Click();
                     break;
 
                 case "Clear":

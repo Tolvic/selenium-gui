@@ -8,6 +8,6 @@ namespace selenium_gui.Interfaces
 {
     public interface ISequence
     {
-        void Run();
+         string Run();
     }
 }

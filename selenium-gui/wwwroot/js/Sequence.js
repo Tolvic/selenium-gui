@@ -10,9 +10,20 @@
         setUpExportBindings();
         setUpImportBindings();
         setUpToggleImportButtonBindings();
+        setUpAlertBindings();
     }
 
    // private functions
+    function setUpAlertBindings() {
+        $("#dismiss-alert").click(function() {
+            dismissAlert();
+        });
+    }
+
+    function dismissAlert() {
+        $(".alert").addClass("invisible");
+    }
+
     function setUpImportBindings() {
         $("#import-sequence-json").click(function () {
             importSequence();
@@ -254,7 +265,7 @@
     }
 
     function displayResponseMessage(response) {
-        $(".alert").text(response);
+        $("#alert-message").text(response);
         if (response !== "Sequence ran sucessfully") {
             $(".alert").removeClass("alert-success");
             $(".alert").addClass("alert-danger");

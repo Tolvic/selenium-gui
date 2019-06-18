@@ -57,6 +57,12 @@ body {
 
 
 /* Sequence Styling */
-.delete-step {
+.delete-step, #dismiss-alert {
     color: indianred;
+}
+
+
+#alert-message {
+    display: flex;
+    align-items: center;
 }

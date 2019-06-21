@@ -136,18 +136,8 @@
     function setUpRunSequenceEventBinding() {
         $("#run-sequence").click(function () {
             var sequenceData = getSequenceData();
-            var jsonSequenceData = stringifySequenceData(sequenceData);
-            sendRunSequence(jsonSequenceData);
+            sendRunSequence(sequenceData);
         });
-    }
-
-    function stringifySequenceData(sequence) {
-        var sequenceData = [];
-        sequence.forEach(function (step) {
-            sequenceData.push(JSON.stringify(step));
-        });
-
-        return JSON.stringify(sequenceData);
     }
 
     function setUpStepTypeSelectionBinding() {
@@ -251,11 +241,9 @@
 
     function sendRunSequence(sequenceData) {
         $.ajax({
-            type: "GET",
+            type: "POST",
             url: "/Sequence/Run",
-            data: {
-                sequenceData: sequenceData
-            },
+            data:  JSON.stringify(sequenceData),
             contentType: 'application/json',
             dataType: "text",
             success: function (response) {

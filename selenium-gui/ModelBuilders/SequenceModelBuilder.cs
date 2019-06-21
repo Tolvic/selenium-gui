@@ -17,23 +17,8 @@ namespace selenium_gui.ModelBuilders
             _driverModelBuilder = driverModelBuilder;
         }
 
-        public ISequence Build(string sequenceData)
+        public ISequence Build(List<Step> steps)
         {
-            if (string.IsNullOrWhiteSpace(sequenceData))
-            {
-                throw new ArgumentException("Value cannot be null or whitespace.", nameof(sequenceData));
-            }
-
-            List<string> jsonSteps = JsonConvert.DeserializeObject<List<string>>(sequenceData);
-
-            List<Step> steps = new List<Step>();
-
-
-            foreach (var step in jsonSteps)
-            {
-                steps.Add(JsonConvert.DeserializeObject<Step>(step));
-            }
-
             return new Sequence
             {
                 Driver = _driverModelBuilder.Build(),

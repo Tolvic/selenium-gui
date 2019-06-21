@@ -8,6 +8,6 @@ namespace selenium_gui.Interfaces
 {
     public interface ISequenceModelBuilder
     {
-        ISequence Build(string sequenceData);
+        ISequence Build(List<Step> steps);
     }
 }

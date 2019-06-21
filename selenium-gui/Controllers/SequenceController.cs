@@ -21,7 +21,8 @@ namespace selenium_gui.Controllers
             _sequenceModelBuilder = sequenceModelBuilder;
         }
 
-        public IActionResult Run(string sequenceData)
+        [HttpPost]
+        public IActionResult Run([FromBody] List<Step> sequenceData)
         {
 
             var sequence = _sequenceModelBuilder.Build(sequenceData);
